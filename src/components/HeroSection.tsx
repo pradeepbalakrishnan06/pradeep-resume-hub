@@ -1,0 +1,58 @@
+
+import { ArrowDown } from "lucide-react";
+
+const HeroSection = () => {
+  const scrollToAbout = () => {
+    const aboutSection = document.getElementById('about');
+    if (aboutSection) {
+      aboutSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
+    <section className="min-h-screen flex flex-col justify-center items-center px-4 py-20 bg-gradient-to-b from-resume-blue/10 to-white">
+      <div className="text-center max-w-4xl mx-auto opacity-0 animate-fade-in">
+        <div className="w-32 h-32 rounded-full bg-resume-blue/20 mx-auto mb-8 flex items-center justify-center text-2xl text-resume-dark-gray">
+          PB
+        </div>
+        <h1 className="text-3xl md:text-5xl font-bold text-resume-dark-gray mb-4 leading-tight">
+          Driving Strategic Change and Product Innovation in Global Operations
+        </h1>
+        <p className="text-xl md:text-2xl text-resume-medium-gray mb-8">
+          15+ years of leadership across product management, transformation, and application support
+        </p>
+        <div className="flex justify-center gap-4 mb-16">
+          <a 
+            href="https://linkedin.com" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="py-2 px-6 bg-resume-dark-gray text-white rounded hover:bg-black transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a 
+            href="mailto:example@example.com" 
+            className="py-2 px-6 bg-resume-blue text-resume-dark-gray rounded hover:bg-resume-blue/80 transition-colors"
+          >
+            Email
+          </a>
+          <a 
+            href="#" 
+            className="py-2 px-6 border border-resume-dark-gray text-resume-dark-gray rounded hover:bg-resume-light-gray transition-colors"
+          >
+            Resume PDF
+          </a>
+        </div>
+      </div>
+      <button 
+        onClick={scrollToAbout}
+        className="absolute bottom-8 md:bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce"
+        aria-label="Scroll down"
+      >
+        <ArrowDown className="text-resume-dark-gray" size={24} />
+      </button>
+    </section>
+  );
+};
+
+export default HeroSection;

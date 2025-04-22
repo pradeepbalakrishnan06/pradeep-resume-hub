@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -97,5 +98,60 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .timeline-item {
+    @apply relative pl-10 pb-10;
+  }
+
+  .timeline-item::before {
+    content: '';
+    @apply absolute top-0 left-0 w-1 h-full bg-resume-blue rounded-full;
+  }
+
+  .timeline-item::after {
+    content: '';
+    @apply absolute top-2 left-0 w-5 h-5 bg-white border-2 border-resume-blue rounded-full -translate-x-2;
+  }
+
+  .timeline-item:last-child {
+    @apply pb-0;
+  }
+
+  .timeline-item:last-child::before {
+    @apply h-10;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold mb-6 text-resume-dark-gray;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-white to-resume-soft-gray;
+  }
+}
+
+@layer components {
+  .skill-bubble {
+    @apply px-4 py-2 bg-resume-blue bg-opacity-20 rounded-full text-sm font-medium text-resume-dark-gray inline-flex items-center gap-2 m-1;
+  }
+}
+
+@layer utilities {
+  .animation-delay-1 {
+    animation-delay: 0.1s;
+  }
+  .animation-delay-2 {
+    animation-delay: 0.2s;
+  }
+  .animation-delay-3 {
+    animation-delay: 0.3s;
+  }
+  .animation-delay-4 {
+    animation-delay: 0.4s;
+  }
+  .animation-delay-5 {
+    animation-delay: 0.5s;
   }
 }
