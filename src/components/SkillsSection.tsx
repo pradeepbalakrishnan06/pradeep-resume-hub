@@ -1,27 +1,26 @@
-
 import { 
-  Excel, 
-  PowerBi, 
-  ChartPie, 
-  ChartBar, 
-  ChartLine, 
-  Azure, 
-  Itil, 
-  ServiceNow, 
+  FileSpreadsheet, 
+  BarChart4, 
+  PieChart, 
+  BarChart, 
+  LineChart, 
+  Cloud, 
+  Workflow, 
+  MessagesSquare, 
   FileCode, 
   FileText, 
-  Sharepoint, 
-  PowerAutomate 
+  Share2, 
+  Play 
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
-  BarChart, 
+  BarChart as RechartsBarChart, 
   Bar, 
   XAxis, 
   YAxis, 
   Tooltip, 
   ResponsiveContainer,
-  PieChart,
+  PieChart as RechartsPieChart,
   Pie,
   Cell,
   RadarChart,
@@ -34,17 +33,17 @@ import {
 
 const SkillsSection = () => {
   const skills = [
-    { name: "Excel", icon: Excel, color: "#217346" },
-    { name: "Power BI", icon: PowerBi, color: "#F2C811" },
-    { name: "Tableau", icon: ChartPie, color: "#E97627" },
-    { name: "Looker Studio", icon: ChartBar, color: "#4285F4" },
-    { name: "Azure", icon: Azure, color: "#0089D6" },
-    { name: "ITIL", icon: Itil, color: "#B52E31" },
-    { name: "ServiceNow", icon: ServiceNow, color: "#81B5A1" },
+    { name: "Excel", icon: FileSpreadsheet, color: "#217346" },
+    { name: "Power BI", icon: BarChart4, color: "#F2C811" },
+    { name: "Tableau", icon: PieChart, color: "#E97627" },
+    { name: "Looker Studio", icon: BarChart, color: "#4285F4" },
+    { name: "Azure", icon: Cloud, color: "#0089D6" },
+    { name: "ITIL", icon: Workflow, color: "#B52E31" },
+    { name: "ServiceNow", icon: MessagesSquare, color: "#81B5A1" },
     { name: "BDD", icon: FileCode, color: "#3C873A" },
     { name: "TDD", icon: FileCode, color: "#F44A52" },
-    { name: "SharePoint", icon: Sharepoint, color: "#0078D4" },
-    { name: "Power Automate", icon: PowerAutomate, color: "#0077FF" },
+    { name: "SharePoint", icon: Share2, color: "#0078D4" },
+    { name: "Power Automate", icon: Play, color: "#0077FF" },
   ];
 
   const experienceByLevel = [
@@ -84,12 +83,12 @@ const SkillsSection = () => {
               <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Experience by Role Level</h3>
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={experienceByLevel}>
+                  <RechartsBarChart data={experienceByLevel}>
                     <XAxis dataKey="name" />
                     <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
                     <Tooltip />
                     <Bar dataKey="years" fill="#D3E4FD" />
-                  </BarChart>
+                  </RechartsBarChart>
                 </ResponsiveContainer>
               </div>
             </CardContent>
@@ -123,7 +122,7 @@ const SkillsSection = () => {
               <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Experience by Location</h3>
               <div className="h-64">
                 <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
+                  <RechartsPieChart>
                     <Pie
                       data={locationData}
                       cx="50%"
@@ -139,7 +138,7 @@ const SkillsSection = () => {
                       ))}
                     </Pie>
                     <Tooltip />
-                  </PieChart>
+                  </RechartsPieChart>
                 </ResponsiveContainer>
               </div>
             </CardContent>
