@@ -69,15 +69,20 @@ const SkillsSection = () => {
     { name: "Singapore", value: 0.5 },
   ];
 
-  const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE", "#403E43"];
+  const companyDurationData = [
+    { name: "Credit Suisse", value: 1.7 },
+    { name: "UBS", value: 3 },
+    { name: "HCL", value: 10.3 }, // Combined HCL experience
+  ];
+
+  const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE"];
 
   return (
     <section id="skills" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="section-title opacity-0 animate-fade-in">Skills & Insights</h2>
         
-        {/* Charts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 opacity-0 animate-fade-in animation-delay-1">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16 opacity-0 animate-fade-in animation-delay-1">
           <Card className="card-gradient shadow-md">
             <CardContent className="p-6">
               <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Experience by Role Level</h3>
@@ -87,7 +92,7 @@ const SkillsSection = () => {
                     <XAxis dataKey="name" />
                     <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
                     <Tooltip />
-                    <Bar dataKey="years" fill="#D3E4FD" />
+                    <Bar dataKey="years" fill="#B85042" />
                   </RechartsBarChart>
                 </ResponsiveContainer>
               </div>
@@ -106,8 +111,8 @@ const SkillsSection = () => {
                     <Radar 
                       name="Skills" 
                       dataKey="value" 
-                      stroke="#403E43" 
-                      fill="#D3E4FD" 
+                      stroke="#A7BEAE" 
+                      fill="#E7E8D1" 
                       fillOpacity={0.6} 
                     />
                     <Legend />
@@ -143,9 +148,35 @@ const SkillsSection = () => {
               </div>
             </CardContent>
           </Card>
+
+          <Card className="card-gradient shadow-md">
+            <CardContent className="p-6">
+              <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Time at Companies</h3>
+              <div className="h-64">
+                <ResponsiveContainer width="100%" height="100%">
+                  <RechartsPieChart>
+                    <Pie
+                      data={companyDurationData}
+                      cx="50%"
+                      cy="50%"
+                      labelLine={false}
+                      outerRadius={80}
+                      fill="#8884d8"
+                      dataKey="value"
+                      label={({ name, value }) => `${name} ${value}y`}
+                    >
+                      {companyDurationData.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                      ))}
+                    </Pie>
+                    <Tooltip />
+                  </RechartsPieChart>
+                </ResponsiveContainer>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
-        {/* Skills Icons Grid */}
         <h3 className="text-xl font-semibold mb-6 text-resume-dark-gray opacity-0 animate-fade-in animation-delay-2">
           Tools & Technologies
         </h3>
