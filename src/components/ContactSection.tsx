@@ -20,7 +20,7 @@ const ContactSection = () => {
             <span>LinkedIn</span>
           </a>
           <a 
-            href="mailto:example@example.com" 
+            href="mailto:pradeep.balakrishnan@outlook.com" 
             className="flex items-center gap-2 py-3 px-6 bg-white/10 backdrop-blur-sm rounded-md hover:bg-white/20 transition-colors"
           >
             <Mail size={20} />
