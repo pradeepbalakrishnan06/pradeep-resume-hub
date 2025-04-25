@@ -10,7 +10,12 @@ import {
   FileCode, 
   FileText, 
   Share2, 
-  Play 
+  Play,
+  Database,
+  GitBranch,
+  Terminal,
+  Settings,
+  Code
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { 
@@ -44,6 +49,11 @@ const SkillsSection = () => {
     { name: "TDD", icon: FileCode, color: "#F44A52" },
     { name: "SharePoint", icon: Share2, color: "#0078D4" },
     { name: "Power Automate", icon: Play, color: "#0077FF" },
+    { name: "SQL", icon: Database, color: "#336791" },
+    { name: "Git", icon: GitBranch, color: "#F05032" },
+    { name: "Shell Scripting", icon: Terminal, color: "#4EAA25" },
+    { name: "Jenkins", icon: Settings, color: "#D24939" },
+    { name: "Python", icon: Code, color: "#3776AB" },
   ];
 
   const experienceByLevel = [
@@ -61,6 +71,8 @@ const SkillsSection = () => {
     { skill: "Product Mgmt", value: 95 },
     { skill: "Data Viz", value: 80 },
     { skill: "Cloud", value: 70 },
+    { skill: "Automation", value: 85 },
+    { skill: "SQL", value: 80 },
   ];
 
   const locationData = [
@@ -72,7 +84,7 @@ const SkillsSection = () => {
   const companyDurationData = [
     { name: "Credit Suisse", value: 1.7 },
     { name: "UBS", value: 3 },
-    { name: "HCL", value: 10.3 }, // Combined HCL experience
+    { name: "HCL", value: 10.3 },
   ];
 
   const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE"];
@@ -80,7 +92,7 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title opacity-0 animate-fade-in">Skills & Insights</h2>
+        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-8 opacity-0 animate-fade-in">Skills & Insights</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16 opacity-0 animate-fade-in animation-delay-1">
           <Card className="card-gradient shadow-md">
@@ -180,11 +192,14 @@ const SkillsSection = () => {
         <h3 className="text-xl font-semibold mb-6 text-resume-dark-gray opacity-0 animate-fade-in animation-delay-2">
           Tools & Technologies
         </h3>
-        <div className="flex flex-wrap justify-center gap-4 opacity-0 animate-fade-in animation-delay-3">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 opacity-0 animate-fade-in animation-delay-3">
           {skills.map((skill, index) => (
-            <div key={index} className="skill-bubble">
+            <div 
+              key={index} 
+              className="flex items-center gap-2 px-4 py-2 bg-resume-light-gray rounded-lg hover:bg-resume-blue/10 transition-colors"
+            >
               <skill.icon size={18} color={skill.color} />
-              <span>{skill.name}</span>
+              <span className="text-resume-dark-gray">{skill.name}</span>
             </div>
           ))}
         </div>
