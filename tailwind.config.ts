@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -69,6 +68,9 @@ export default {
 					'dark-gray': '#403E43',
 					'medium-gray': '#8A898C',
 					'light-gray': '#F6F6F7',
+					'terracotta': '#B85042',
+          			'pale-green': '#E7E8D1',
+          			'sage-gray': '#A7BEAE',
 				}
 			},
 			borderRadius: {
@@ -108,7 +110,10 @@ export default {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-in': 'fade-in 0.5s ease-out forwards'
-			}
+			},
+			fontFamily: {
+        		'sans': ['Inter', 'ui-sans-serif', 'system-ui'],
+      		}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],

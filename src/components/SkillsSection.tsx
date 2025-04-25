@@ -33,9 +33,9 @@ import {
 
 const SkillsSection = () => {
   const skills = [
-    { name: "Excel", icon: FileSpreadsheet, color: "#217346" },
-    { name: "Power BI", icon: BarChart4, color: "#F2C811" },
-    { name: "Tableau", icon: PieChart, color: "#E97627" },
+    { name: "Excel", icon: FileSpreadsheet, color: "#B85042" },
+    { name: "Power BI", icon: BarChart4, color: "#A7BEAE" },
+    { name: "Tableau", icon: PieChart, color: "#E7E8D1" },
     { name: "Looker Studio", icon: BarChart, color: "#4285F4" },
     { name: "Azure", icon: Cloud, color: "#0089D6" },
     { name: "ITIL", icon: Workflow, color: "#B52E31" },
@@ -69,7 +69,7 @@ const SkillsSection = () => {
     { name: "Singapore", value: 0.5 },
   ];
 
-  const COLORS = ["#D3E4FD", "#403E43", "#8A898C", "#F1F0FB"];
+  const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE", "#403E43"];
 
   return (
     <section id="skills" className="py-16 md:py-24 bg-white">
