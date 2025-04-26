@@ -51,8 +51,8 @@ const SkillsSection = () => {
     { name: "Power Automate", icon: Play, color: "#0077FF" },
     { name: "SQL", icon: Database, color: "#336791" },
     { name: "Git", icon: GitBranch, color: "#F05032" },
-    { name: "Shell Scripting", icon: Terminal, color: "#4EAA25" },
-    { name: "Jenkins", icon: Settings, color: "#D24939" },
+    { name: "Agile", icon: Workflow, color: "#0052CC" },
+    { name: "Jira", icon: FileText, color: "#0052CC" },
     { name: "Python", icon: Code, color: "#3776AB" },
   ];
 
