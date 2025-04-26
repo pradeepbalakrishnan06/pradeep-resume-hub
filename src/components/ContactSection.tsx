@@ -12,7 +12,7 @@ const ContactSection = () => {
         </p>
         <div className="flex flex-wrap justify-center gap-4 mb-12 opacity-0 animate-fade-in animation-delay-2">
           <a 
-            href="https://linkedin.com" 
+            href="https://www.linkedin.com/in/pb220686/" 
             target="_blank" 
             rel="noopener noreferrer"
             className="flex items-center gap-2 py-3 px-6 bg-white/10 backdrop-blur-sm rounded-md hover:bg-white/20 transition-colors"
