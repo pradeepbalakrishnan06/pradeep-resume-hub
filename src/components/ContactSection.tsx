@@ -1,5 +1,6 @@
 
 import { Linkedin, Mail, FileText } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const ContactSection = () => {
   return (
@@ -26,13 +27,24 @@ const ContactSection = () => {
             <Mail size={20} />
             <span>Email</span>
           </a>
-          <a 
-            href="#" 
-            className="flex items-center gap-2 py-3 px-6 bg-white/10 backdrop-blur-sm rounded-md hover:bg-white/20 transition-colors"
-          >
-            <FileText size={20} />
-            <span>Download Resume</span>
-          </a>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="flex items-center gap-2 py-3 px-6 bg-white/10 backdrop-blur-sm rounded-md hover:bg-white/20 transition-colors">
+                <FileText size={20} />
+                <span>Download Resume</span>
+              </button>
+            </DialogTrigger>
+            <DialogContent className="p-0 w-full max-w-3xl">
+              <iframe
+                src="https://tally.so/r/wkgKaJ"
+                width="100%"
+                height="600"
+                frameBorder="0"
+                title="Resume Request Form"
+                className="rounded-lg"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
         <div className="text-sm text-white/60 opacity-0 animate-fade-in animation-delay-3">
           &copy; {new Date().getFullYear()} Pradeep Balakrishnan. All rights reserved.

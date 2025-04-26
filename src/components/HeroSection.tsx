@@ -1,5 +1,6 @@
 
 import { ArrowDown } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -36,12 +37,23 @@ const HeroSection = () => {
           >
             Email
           </a>
-          <a 
-            href="#" 
-            className="py-2 px-6 border border-resume-dark-gray text-resume-dark-gray rounded hover:bg-resume-light-gray transition-colors"
-          >
-            Resume PDF
-          </a>
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="py-2 px-6 border border-resume-dark-gray text-resume-dark-gray rounded hover:bg-resume-light-gray transition-colors">
+                Resume PDF
+              </button>
+            </DialogTrigger>
+            <DialogContent className="p-0 w-full max-w-3xl">
+              <iframe
+                src="https://tally.so/r/wkgKaJ"
+                width="100%"
+                height="600"
+                frameBorder="0"
+                title="Resume Request Form"
+                className="rounded-lg"
+              />
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
       <button 
