@@ -2,9 +2,12 @@
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import { useIsMobile } from "@/hooks/use-mobile";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const StarMethodSection = () => {
   const [activeTab, setActiveTab] = useState("product");
+  const isMobile = useIsMobile();
 
   const tabs = [
     {
@@ -123,24 +126,81 @@ const StarMethodSection = () => {
     }
   ];
 
+  // Function to render card content based on screen size
+  const renderCardContent = (tab) => {
+    if (isMobile) {
+      return (
+        <div className="space-y-4">
+          {tab.items.map((item, index) => (
+            <Collapsible key={index} className="border border-resume-soft-gray rounded-md overflow-hidden">
+              <CollapsibleTrigger className="flex justify-between items-center w-full p-3 bg-resume-soft-gray/50 text-resume-dark-gray font-medium text-left">
+                <span>{item.situation}</span>
+                <span className="text-sm">View details →</span>
+              </CollapsibleTrigger>
+              <CollapsibleContent className="p-3 space-y-2 border-t border-resume-soft-gray/50">
+                <div>
+                  <span className="font-semibold text-resume-dark-gray">Task:</span>
+                  <p className="text-resume-dark-gray">{item.task}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-resume-dark-gray">Action:</span>
+                  <p className="text-resume-dark-gray">{item.action}</p>
+                </div>
+                <div>
+                  <span className="font-semibold text-resume-dark-gray">Result:</span>
+                  <p className="text-resume-dark-gray">{item.result}</p>
+                </div>
+              </CollapsibleContent>
+            </Collapsible>
+          ))}
+        </div>
+      );
+    } else {
+      return (
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="bg-resume-soft-gray border-b">
+                <th className="text-left p-4 text-resume-dark-gray font-semibold">Situation</th>
+                <th className="text-left p-4 text-resume-dark-gray font-semibold">Task</th>
+                <th className="text-left p-4 text-resume-dark-gray font-semibold">Action</th>
+                <th className="text-left p-4 text-resume-dark-gray font-semibold">Result</th>
+              </tr>
+            </thead>
+            <tbody>
+              {tab.items.map((item, index) => (
+                <tr key={index} className="border-b hover:bg-resume-soft-gray/20 transition-colors">
+                  <td className="p-4 text-resume-dark-gray">{item.situation}</td>
+                  <td className="p-4 text-resume-dark-gray">{item.task}</td>
+                  <td className="p-4 text-resume-dark-gray">{item.action}</td>
+                  <td className="p-4 text-resume-dark-gray">{item.result}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      );
+    }
+  };
+
   return (
-    <section id="star" className="py-16 md:py-24 bg-white">
+    <section id="star" className="py-12 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title opacity-0 animate-fade-in">Explore My Experience by Skill</h2>
-        <p className="text-resume-medium-gray mb-8 max-w-3xl opacity-0 animate-fade-in animation-delay-1">
+        <h2 className="section-title text-xl md:text-3xl font-bold mb-4 md:mb-6 opacity-0 animate-fade-in">Explore My Experience by Skill</h2>
+        <p className="text-sm md:text-lg mb-6 md:mb-8 max-w-3xl opacity-0 animate-fade-in animation-delay-1">
           The following examples showcase my experience using the STAR method (Situation, Task, Action, Result).
-          Click on different tabs to explore various skill areas.
+          {isMobile ? ' Tap on different tabs to explore.' : ' Click on different tabs to explore various skill areas.'}
         </p>
         
         <Tabs defaultValue="product" className="opacity-0 animate-fade-in animation-delay-2">
-          <TabsList className="w-full flex flex-wrap justify-start mb-6">
+          <TabsList className="w-full flex flex-wrap justify-start mb-6 overflow-x-auto pb-2 gap-1 md:gap-0">
             {tabs.map((tab) => (
               <TabsTrigger 
                 key={tab.id} 
                 value={tab.id}
-                className="data-[state=active]:bg-resume-blue data-[state=active]:text-resume-dark-gray"
+                className="data-[state=active]:bg-resume-blue data-[state=active]:text-resume-dark-gray text-xs md:text-sm px-2 md:px-4 whitespace-nowrap"
               >
-                {tab.label}
+                {isMobile ? tab.label.split(' ')[0] : tab.label}
               </TabsTrigger>
             ))}
           </TabsList>
@@ -148,29 +208,8 @@ const StarMethodSection = () => {
           {tabs.map((tab) => (
             <TabsContent key={tab.id} value={tab.id} className="mt-4">
               <Card className="border-0 shadow-sm">
-                <CardContent className="p-0">
-                  <div className="overflow-x-auto">
-                    <table className="w-full">
-                      <thead>
-                        <tr className="bg-resume-soft-gray border-b">
-                          <th className="text-left p-4 text-resume-dark-gray font-semibold">Situation</th>
-                          <th className="text-left p-4 text-resume-dark-gray font-semibold">Task</th>
-                          <th className="text-left p-4 text-resume-dark-gray font-semibold">Action</th>
-                          <th className="text-left p-4 text-resume-dark-gray font-semibold">Result</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {tab.items.map((item, index) => (
-                          <tr key={index} className="border-b hover:bg-resume-soft-gray/20 transition-colors">
-                            <td className="p-4 text-resume-dark-gray">{item.situation}</td>
-                            <td className="p-4 text-resume-dark-gray">{item.task}</td>
-                            <td className="p-4 text-resume-dark-gray">{item.action}</td>
-                            <td className="p-4 text-resume-dark-gray">{item.result}</td>
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
+                <CardContent className={isMobile ? "p-3" : "p-0"}>
+                  {renderCardContent(tab)}
                 </CardContent>
               </Card>
             </TabsContent>
