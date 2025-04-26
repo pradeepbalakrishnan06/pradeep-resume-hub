@@ -1,4 +1,3 @@
-
 import { ArrowDown } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
@@ -23,14 +22,6 @@ const HeroSection = () => {
           15+ years of leadership across product management, transformation, and application support
         </p>
         <div className="flex justify-center gap-4 mb-16">
-          <a 
-            href="https://linkedin.com" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="py-2 px-6 bg-resume-dark-gray text-white rounded hover:bg-black transition-colors"
-          >
-            LinkedIn
-          </a>
           <Dialog>
             <DialogTrigger asChild>
               <button className="py-2 px-6 border border-resume-dark-gray text-resume-dark-gray rounded hover:bg-resume-light-gray transition-colors">
