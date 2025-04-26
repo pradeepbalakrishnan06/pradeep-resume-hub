@@ -1,5 +1,5 @@
 
-import { Linkedin, Mail, FileText } from "lucide-react";
+import { Linkedin, FileText } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
 const ContactSection = () => {
@@ -19,13 +19,6 @@ const ContactSection = () => {
           >
             <Linkedin size={20} />
             <span>LinkedIn</span>
-          </a>
-          <a 
-            href="mailto:pradeep.balakrishnan@outlook.com" 
-            className="flex items-center gap-2 py-3 px-6 bg-white/10 backdrop-blur-sm rounded-md hover:bg-white/20 transition-colors"
-          >
-            <Mail size={20} />
-            <span>Email</span>
           </a>
           <Dialog>
             <DialogTrigger asChild>

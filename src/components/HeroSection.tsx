@@ -31,12 +31,6 @@ const HeroSection = () => {
           >
             LinkedIn
           </a>
-          <a 
-            href="mailto:pradeep.balakrishnan@outlook.com" 
-            className="py-2 px-6 bg-resume-blue text-resume-dark-gray rounded hover:bg-resume-blue/80 transition-colors"
-          >
-            Email
-          </a>
           <Dialog>
             <DialogTrigger asChild>
               <button className="py-2 px-6 border border-resume-dark-gray text-resume-dark-gray rounded hover:bg-resume-light-gray transition-colors">
