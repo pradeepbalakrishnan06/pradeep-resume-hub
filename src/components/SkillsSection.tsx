@@ -1,4 +1,3 @@
-
 import { 
   FileSpreadsheet, 
   BarChart4, 
@@ -98,12 +97,12 @@ const SkillsSection = () => {
 
   const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE"];
   
-  const carouselSlides = [
+  const skillInsights = [
     {
       title: "Skills Proficiency",
       insight: "Proficient across DevOps, SRE, Data Visualization, and Cloud platforms.",
       chart: (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
           <RadarChart outerRadius={90} data={skillsRadarData}>
             <PolarGrid />
             <PolarAngleAxis dataKey="skill" />
@@ -121,10 +120,10 @@ const SkillsSection = () => {
       )
     },
     {
-      title: "Years of Experience",
-      insight: "15+ years in transformation leadership across Banking and Technology domains.",
+      title: "Career Journey",
+      insight: "15+ years of transformative leadership across global banking and technology domains, consistently driving innovation and excellence.",
       chart: (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
           <RechartsBarChart data={experienceByLevel}>
             <XAxis dataKey="name" />
             <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
@@ -135,10 +134,10 @@ const SkillsSection = () => {
       )
     },
     {
-      title: "Global Exposure",
-      insight: "Led teams across India, USA, and Singapore, driving multicultural collaboration.",
+      title: "Global Impact",
+      insight: "Led diverse teams across three continents, fostering multicultural collaboration and driving international business transformation initiatives.",
       chart: (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
           <RechartsPieChart>
             <Pie
               data={locationData}
@@ -162,9 +161,9 @@ const SkillsSection = () => {
     },
     {
       title: "Company Experience",
-      insight: "Built expertise across global financial institutions and tech service providers.",
+      insight: "Demonstrated versatility across global financial institutions and tech service providers, delivering impactful solutions and driving digital transformation.",
       chart: (
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={300}>
           <RechartsPieChart>
             <Pie
               data={companyDurationData}
@@ -191,42 +190,40 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-12 opacity-0 animate-fade-in">Skills & Insights</h2>
+        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-12 opacity-0 animate-fade-in">
+          Skills & Insights
+        </h2>
         
-        <div className="mb-16 opacity-0 animate-fade-in animation-delay-1">
-          <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {carouselSlides.map((slide, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-2/3 lg:basis-1/2">
-                  <Card className="card-gradient shadow-md h-full">
-                    <CardContent className="p-6 flex flex-col h-full">
-                      <h3 className="text-xl font-semibold mb-2 text-resume-dark-gray">{slide.title}</h3>
-                      <p className="text-resume-medium-gray mb-4">{slide.insight}</p>
-                      <div className="flex-grow">
-                        {slide.chart}
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-            <div className="flex justify-center mt-6">
-              <CarouselPrevious className="static translate-y-0 mx-2" />
-              <CarouselNext className="static translate-y-0 mx-2" />
-            </div>
-          </Carousel>
+        <div className="space-y-12">
+          {skillInsights.map((insight, index) => (
+            <Card 
+              key={index} 
+              className="card-gradient shadow-md opacity-0 animate-fade-in"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <CardContent className="p-6">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="order-2 md:order-1">
+                    {insight.chart}
+                  </div>
+                  <div className="order-1 md:order-2">
+                    <h3 className="text-2xl font-semibold mb-4 text-resume-dark-gray">
+                      {insight.title}
+                    </h3>
+                    <p className="text-resume-medium-gray text-lg">
+                      {insight.insight}
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
-        <h3 className="text-xl font-semibold mb-6 text-resume-dark-gray opacity-0 animate-fade-in animation-delay-2">
+        <h3 className="text-xl font-semibold mt-16 mb-6 text-resume-dark-gray opacity-0 animate-fade-in">
           Tools & Technologies
         </h3>
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 opacity-0 animate-fade-in animation-delay-3">
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 opacity-0 animate-fade-in">
           {skills.map((skill, index) => (
             <div 
               key={index} 

@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,7 +5,6 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 
 const StarMethodSection = () => {
-  const [activeTab, setActiveTab] = useState("product");
   const isMobile = useIsMobile();
 
   const tabs = [
@@ -36,27 +34,40 @@ const StarMethodSection = () => {
       ]
     },
     {
-      id: "devops",
-      label: "DevOps Excellence",
-      mobileLabel: "DevOps",
+      id: "operations",
+      label: "Operations Management",
+      mobileLabel: "Operations",
       items: [
         {
-          situation: "200+ applications lacked standardized SRE practices, causing frequent outages",
-          task: "Transform operational reliability through DevOps best practices",
-          action: "Implemented BDD/TDD frameworks, established SLOs, created automated health checks in ServiceNow",
-          result: "99.9% availability achieved, 70% reduction in P1 incidents, 45% faster MTTR"
+          situation: "Manual operational processes causing 40% productivity loss across 200+ team members",
+          task: "Implement end-to-end operational automation and standardization",
+          action: "Developed ServiceNow-based workflow automation, created standardized playbooks, established KPI tracking",
+          result: "60% efficiency gain, $2M annual cost savings, 95% process standardization achieved"
         },
         {
-          situation: "Complex release process requiring 5+ days of manual coordination across teams",
-          task: "Automate end-to-end release management workflow",
-          action: "Built SharePoint-based release automation with Power Automate, integrated with ServiceNow for approvals",
-          result: "Reduced release time to 1 day, eliminated 90% of manual tasks, zero deployment failures"
+          situation: "Fragmented operational data across 15+ systems causing reporting delays",
+          task: "Create unified operational analytics platform",
+          action: "Built integrated Tableau dashboards with automated data pipelines, implemented real-time monitoring",
+          result: "85% reduction in reporting time, 99% data accuracy, 24/7 operational visibility"
+        }
+      ]
+    },
+    {
+      id: "service",
+      label: "Service Delivery",
+      mobileLabel: "Service",
+      items: [
+        {
+          situation: "30% SLA breaches in critical incident management across global operations",
+          task: "Transform incident management framework and team capabilities",
+          action: "Implemented ITIL-based processes, created incident playbooks, established war room protocols",
+          result: "95% SLA compliance, 50% faster MTTR, zero critical incidents in 6 months"
         },
         {
-          situation: "No centralized change tracking across 300+ monthly deployments",
-          task: "Create unified change management visibility system",
-          action: "Developed ServiceNow dashboard suite with real-time metrics and automated reporting",
-          result: "100% change compliance, 50% reduction in failed changes, real-time executive visibility"
+          situation: "Unstructured service delivery causing 25% resource wastage",
+          task: "Design and implement service delivery optimization program",
+          action: "Created service catalog, implemented resource allocation model, established SLA framework",
+          result: "40% cost optimization, 90% customer satisfaction, 30% improved resource utilization"
         }
       ]
     },
@@ -82,6 +93,31 @@ const StarMethodSection = () => {
           task: "Streamline BCP/DR event management",
           action: "Created automated SharePoint workflow system for BCP coordination and testing",
           result: "Reduced event coordination to 4 hours, achieved 100% DR test success rate"
+        }
+      ]
+    },
+    {
+      id: "devops",
+      label: "DevOps Excellence",
+      mobileLabel: "DevOps",
+      items: [
+        {
+          situation: "200+ applications lacked standardized SRE practices, causing frequent outages",
+          task: "Transform operational reliability through DevOps best practices",
+          action: "Implemented BDD/TDD frameworks, established SLOs, created automated health checks in ServiceNow",
+          result: "99.9% availability achieved, 70% reduction in P1 incidents, 45% faster MTTR"
+        },
+        {
+          situation: "Complex release process requiring 5+ days of manual coordination across teams",
+          task: "Automate end-to-end release management workflow",
+          action: "Built SharePoint-based release automation with Power Automate, integrated with ServiceNow for approvals",
+          result: "Reduced release time to 1 day, eliminated 90% of manual tasks, zero deployment failures"
+        },
+        {
+          situation: "No centralized change tracking across 300+ monthly deployments",
+          task: "Create unified change management visibility system",
+          action: "Developed ServiceNow dashboard suite with real-time metrics and automated reporting",
+          result: "100% change compliance, 50% reduction in failed changes, real-time executive visibility"
         }
       ]
     },
@@ -175,12 +211,12 @@ const StarMethodSection = () => {
         </p>
         
         <Tabs defaultValue="product" className="opacity-0 animate-fade-in animation-delay-2">
-          <TabsList className="grid grid-cols-2 md:flex md:flex-wrap md:justify-start mb-6 gap-2">
+          <TabsList className="flex flex-wrap justify-start mb-6 gap-2 overflow-x-auto">
             {tabs.map((tab) => (
               <TabsTrigger 
                 key={tab.id} 
                 value={tab.id}
-                className="data-[state=active]:bg-resume-blue data-[state=active]:text-resume-dark-gray text-sm md:text-base px-3 py-2 md:px-4"
+                className="data-[state=active]:bg-resume-blue data-[state=active]:text-resume-dark-gray px-4 py-2 whitespace-nowrap text-sm md:text-base"
               >
                 {isMobile ? tab.mobileLabel : tab.label}
               </TabsTrigger>

@@ -1,4 +1,3 @@
-
 import { ArrowDown } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { useEffect, useState, useRef } from "react";
@@ -50,9 +49,14 @@ const AnimatedCounter = ({ end, duration = 2000, label }: { end: number, duratio
   }, [end, duration, isVisible]);
 
   return (
-    <div ref={countRef} className="flex flex-col items-center p-4">
-      <div className="text-3xl md:text-4xl font-bold text-resume-dark-gray mb-1">{count}+</div>
-      <div className="text-sm text-resume-medium-gray text-center">{label}</div>
+    <div ref={countRef} className="flex flex-col items-center p-6">
+      <div className="text-5xl md:text-6xl font-display font-bold text-resume-terracotta mb-2">
+        {count}
+        <span className="text-4xl">+</span>
+      </div>
+      <div className="text-base md:text-lg text-resume-dark-gray font-medium text-center">
+        {label}
+      </div>
     </div>
   );
 };
