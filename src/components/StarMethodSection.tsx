@@ -14,10 +14,10 @@ const StarMethodSection = () => {
       mobileLabel: "Product",
       items: [
         {
-          situation: "Critical visibility gap: Product teams lacked real-time progress tracking across 50+ agile teams",
-          task: "Design and implement comprehensive product roadmap visualization & analytics system",
-          action: "Created dynamic Tableau dashboards integrated with Jira, established agile ceremonies, standardized story pointing",
-          result: "35% faster release cycles, 90% stakeholder satisfaction, real-time visibility into 200+ epics"
+          situation: "Critical visibility gap: Product teams lacked real-time progress tracking across 50+ agile teams using disparate tools",
+          task: "Design and implement comprehensive product roadmap visualization & analytics system using Jira and Tableau",
+          action: "Created dynamic Tableau dashboards integrated with Jira, established agile ceremonies, implemented standardized Excel templates for velocity tracking",
+          result: "35% faster release cycles, 90% stakeholder satisfaction, real-time visibility into 200+ epics through integrated Jira-Tableau dashboards"
         },
         {
           situation: "Low feature adoption rates (<40%) across enterprise platform serving 10,000+ users",
@@ -40,9 +40,9 @@ const StarMethodSection = () => {
       items: [
         {
           situation: "Manual operational processes causing 40% productivity loss across 200+ team members",
-          task: "Implement end-to-end operational automation and standardization",
-          action: "Developed ServiceNow-based workflow automation, created standardized playbooks, established KPI tracking",
-          result: "60% efficiency gain, $2M annual cost savings, 95% process standardization achieved"
+          task: "Implement end-to-end operational automation and standardization using ServiceNow",
+          action: "Developed ServiceNow workflow automation, created standardized Excel templates, established KPI tracking in Tableau",
+          result: "60% efficiency gain, $2M annual cost savings, 95% process standardization achieved with integrated dashboards"
         },
         {
           situation: "Fragmented operational data across 15+ systems causing reporting delays",
@@ -103,9 +103,9 @@ const StarMethodSection = () => {
       items: [
         {
           situation: "200+ applications lacked standardized SRE practices, causing frequent outages",
-          task: "Transform operational reliability through DevOps best practices",
-          action: "Implemented BDD/TDD frameworks, established SLOs, created automated health checks in ServiceNow",
-          result: "99.9% availability achieved, 70% reduction in P1 incidents, 45% faster MTTR"
+          task: "Transform operational reliability through DevOps best practices and monitoring",
+          action: "Implemented Jira workflows for sprint management, established SLOs with Tableau monitoring, created automated health checks in ServiceNow",
+          result: "99.9% availability achieved, 70% reduction in P1 incidents, 45% faster MTTR with real-time Tableau dashboards"
         },
         {
           situation: "Complex release process requiring 5+ days of manual coordination across teams",
@@ -142,7 +142,6 @@ const StarMethodSection = () => {
     }
   ];
 
-  // Function to render card content based on screen size
   const renderCardContent = (tab) => {
     if (isMobile) {
       return (

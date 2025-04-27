@@ -100,7 +100,7 @@ const SkillsSection = () => {
   const skillInsights = [
     {
       title: "Skills Proficiency",
-      insight: "Proficient across DevOps, SRE, Data Visualization, and Cloud platforms.",
+      insight: "Mastery across DevOps practices, SRE implementation, and cloud platforms, with deep expertise in data visualization using Tableau and ServiceNow dashboards.",
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RadarChart outerRadius={90} data={skillsRadarData}>
@@ -120,8 +120,8 @@ const SkillsSection = () => {
       )
     },
     {
-      title: "Career Journey",
-      insight: "15+ years of transformative leadership across global banking and technology domains, consistently driving innovation and excellence.",
+      title: "Career Progression",
+      insight: "15+ years of transformative leadership across global banking and technology domains, consistently driving innovation through Jira-Tableau integrated solutions.",
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RechartsBarChart data={experienceByLevel}>
@@ -135,7 +135,7 @@ const SkillsSection = () => {
     },
     {
       title: "Global Impact",
-      insight: "Led diverse teams across three continents, fostering multicultural collaboration and driving international business transformation initiatives.",
+      insight: "Led diverse teams across three continents, implementing Excel-Tableau integrated reporting solutions for enhanced cross-border collaboration.",
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RechartsPieChart>
@@ -160,8 +160,8 @@ const SkillsSection = () => {
       )
     },
     {
-      title: "Company Experience",
-      insight: "Demonstrated versatility across global financial institutions and tech service providers, delivering impactful solutions and driving digital transformation.",
+      title: "Enterprise Experience",
+      insight: "Demonstrated versatility across global financial institutions, delivering impactful solutions using ServiceNow, Jira, and Tableau dashboards.",
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RechartsPieChart>
@@ -188,35 +188,20 @@ const SkillsSection = () => {
   ];
 
   return (
-    <section id="skills" className="py-16 md:py-24 bg-white">
+    <section id="skills" className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-12 opacity-0 animate-fade-in">
           Skills & Insights
         </h2>
         
-        <div className="space-y-12">
+        <div className="space-y-8">
           {skillInsights.map((insight, index) => (
-            <Card 
-              key={index} 
-              className="card-gradient shadow-md opacity-0 animate-fade-in"
-              style={{ animationDelay: `${index * 0.2}s` }}
-            >
-              <CardContent className="p-6">
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div className="order-2 md:order-1">
-                    {insight.chart}
-                  </div>
-                  <div className="order-1 md:order-2">
-                    <h3 className="text-2xl font-semibold mb-4 text-resume-dark-gray">
-                      {insight.title}
-                    </h3>
-                    <p className="text-resume-medium-gray text-lg">
-                      {insight.insight}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            <SkillInsightCard
+              key={index}
+              title={insight.title}
+              insight={insight.insight}
+              chart={insight.chart}
+            />
           ))}
         </div>
 
