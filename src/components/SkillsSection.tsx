@@ -16,23 +16,19 @@ import {
   Terminal,
   Settings,
   Code,
-  Globe
+  Globe,
+  ArrowLeft,
+  ArrowRight
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import SkillInsightCard from "@/components/SkillInsightCard";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import { 
-  BarChart as RechartsBarChart, 
-  Bar, 
-  XAxis, 
-  YAxis, 
-  Tooltip, 
+  BarChart as RechartsBarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
   ResponsiveContainer,
   PieChart as RechartsPieChart,
   Pie,
@@ -188,6 +184,16 @@ const SkillsSection = () => {
     }
   ];
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % skillInsights.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + skillInsights.length) % skillInsights.length);
+  };
+
   return (
     <section id="skills" className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
       <div className="container mx-auto px-4">
@@ -195,16 +201,47 @@ const SkillsSection = () => {
           Skills & Insights
         </h2>
         
-        <div className="space-y-8">
-          {skillInsights.map((insight, index) => (
-            <SkillInsightCard
-              key={index}
-              title={insight.title}
-              insight={insight.insight}
-              chart={insight.chart}
-            />
-          ))}
-        </div>
+        <Card className="w-[90%] mx-auto opacity-0 animate-fade-in hover:shadow-lg transition-shadow duration-300">
+          <CardContent className="p-8">
+            <div className="relative">
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                <div className="order-1">
+                  {skillInsights[currentIndex].chart}
+                </div>
+                <div className="order-2 space-y-4">
+                  <h3 className="text-3xl font-bold text-resume-dark-gray">
+                    {skillInsights[currentIndex].title}
+                  </h3>
+                  <p className="text-xl text-resume-medium-gray leading-relaxed">
+                    {skillInsights[currentIndex].insight}
+                  </p>
+                </div>
+              </div>
+              
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={handlePrev}
+                  className="rounded-full bg-red-500 hover:bg-red-600 text-white"
+                >
+                  <ArrowLeft className="h-4 w-4" />
+                </Button>
+              </div>
+              
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={handleNext}
+                  className="rounded-full bg-red-500 hover:bg-red-600 text-white"
+                >
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
 
         <h3 className="text-xl font-semibold mt-16 mb-6 text-resume-dark-gray opacity-0 animate-fade-in">
           Tools & Technologies
