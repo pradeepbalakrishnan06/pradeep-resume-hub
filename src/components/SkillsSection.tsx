@@ -19,6 +19,7 @@ import {
   Globe
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import SkillInsightCard from "@/components/SkillInsightCard";
 import {
   Carousel,
   CarouselContent,
