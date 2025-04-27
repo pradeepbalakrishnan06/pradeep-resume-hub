@@ -1,5 +1,61 @@
+
 import { ArrowDown } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { useEffect, useState, useRef } from "react";
+
+const AnimatedCounter = ({ end, duration = 2000, label }: { end: number, duration?: number, label: string }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const [entry] = entries;
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.unobserve(entry.target);
+      }
+    }, { threshold: 0.1 });
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => {
+      if (countRef.current) {
+        observer.unobserve(countRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+    
+    let startTime: number;
+    let animationFrame: number;
+    
+    const step = (timestamp: number) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      setCount(Math.floor(progress * end));
+      
+      if (progress < 1) {
+        animationFrame = window.requestAnimationFrame(step);
+      }
+    };
+    
+    animationFrame = window.requestAnimationFrame(step);
+    
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, [end, duration, isVisible]);
+
+  return (
+    <div ref={countRef} className="flex flex-col items-center p-4">
+      <div className="text-3xl md:text-4xl font-bold text-resume-dark-gray mb-1">{count}+</div>
+      <div className="text-sm text-resume-medium-gray text-center">{label}</div>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const scrollToAbout = () => {
@@ -21,6 +77,13 @@ const HeroSection = () => {
         <p className="text-xl md:text-2xl text-resume-medium-gray mb-8">
           15+ years of leadership across product management, transformation, and application support
         </p>
+        
+        <div className="flex justify-center flex-wrap gap-8 mb-10">
+          <AnimatedCounter end={15} label="Years Experience" />
+          <AnimatedCounter end={3} label="Countries Worked" />
+          <AnimatedCounter end={5} label="Certifications" />
+        </div>
+        
         <div className="flex justify-center gap-4 mb-16">
           <Dialog>
             <DialogTrigger asChild>

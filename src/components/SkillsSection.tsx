@@ -1,3 +1,4 @@
+
 import { 
   FileSpreadsheet, 
   BarChart4, 
@@ -15,9 +16,17 @@ import {
   GitBranch,
   Terminal,
   Settings,
-  Code
+  Code,
+  Globe
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import { 
   BarChart as RechartsBarChart, 
   Bar, 
@@ -88,105 +97,130 @@ const SkillsSection = () => {
   ];
 
   const COLORS = ["#B85042", "#E7E8D1", "#A7BEAE"];
+  
+  const carouselSlides = [
+    {
+      title: "Skills Proficiency",
+      insight: "Proficient across DevOps, SRE, Data Visualization, and Cloud platforms.",
+      chart: (
+        <ResponsiveContainer width="100%" height={250}>
+          <RadarChart outerRadius={90} data={skillsRadarData}>
+            <PolarGrid />
+            <PolarAngleAxis dataKey="skill" />
+            <PolarRadiusAxis domain={[0, 100]} />
+            <Radar 
+              name="Skills" 
+              dataKey="value" 
+              stroke="#A7BEAE" 
+              fill="#E7E8D1" 
+              fillOpacity={0.6} 
+            />
+            <Legend />
+          </RadarChart>
+        </ResponsiveContainer>
+      )
+    },
+    {
+      title: "Years of Experience",
+      insight: "15+ years in transformation leadership across Banking and Technology domains.",
+      chart: (
+        <ResponsiveContainer width="100%" height={250}>
+          <RechartsBarChart data={experienceByLevel}>
+            <XAxis dataKey="name" />
+            <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
+            <Tooltip />
+            <Bar dataKey="years" fill="#B85042" />
+          </RechartsBarChart>
+        </ResponsiveContainer>
+      )
+    },
+    {
+      title: "Global Exposure",
+      insight: "Led teams across India, USA, and Singapore, driving multicultural collaboration.",
+      chart: (
+        <ResponsiveContainer width="100%" height={250}>
+          <RechartsPieChart>
+            <Pie
+              data={locationData}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+              label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+            >
+              {locationData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </RechartsPieChart>
+        </ResponsiveContainer>
+      )
+    },
+    {
+      title: "Company Experience",
+      insight: "Built expertise across global financial institutions and tech service providers.",
+      chart: (
+        <ResponsiveContainer width="100%" height={250}>
+          <RechartsPieChart>
+            <Pie
+              data={companyDurationData}
+              cx="50%"
+              cy="50%"
+              labelLine={false}
+              outerRadius={80}
+              fill="#8884d8"
+              dataKey="value"
+              label={({ name, value }) => `${name} ${value}y`}
+            >
+              {companyDurationData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+              ))}
+            </Pie>
+            <Tooltip />
+            <Legend />
+          </RechartsPieChart>
+        </ResponsiveContainer>
+      )
+    }
+  ];
 
   return (
     <section id="skills" className="py-16 md:py-24 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-8 opacity-0 animate-fade-in">Skills & Insights</h2>
+        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-12 opacity-0 animate-fade-in">Skills & Insights</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-16 opacity-0 animate-fade-in animation-delay-1">
-          <Card className="card-gradient shadow-md">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Experience by Role Level</h3>
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RechartsBarChart data={experienceByLevel}>
-                    <XAxis dataKey="name" />
-                    <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
-                    <Tooltip />
-                    <Bar dataKey="years" fill="#B85042" />
-                  </RechartsBarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-gradient shadow-md">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Skills Proficiency</h3>
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RadarChart outerRadius={90} data={skillsRadarData}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="skill" />
-                    <PolarRadiusAxis domain={[0, 100]} />
-                    <Radar 
-                      name="Skills" 
-                      dataKey="value" 
-                      stroke="#A7BEAE" 
-                      fill="#E7E8D1" 
-                      fillOpacity={0.6} 
-                    />
-                    <Legend />
-                  </RadarChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-gradient shadow-md">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Experience by Location</h3>
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RechartsPieChart>
-                    <Pie
-                      data={locationData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                      label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
-                    >
-                      {locationData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </RechartsPieChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="card-gradient shadow-md">
-            <CardContent className="p-6">
-              <h3 className="text-lg font-semibold mb-4 text-resume-dark-gray">Time at Companies</h3>
-              <div className="h-64">
-                <ResponsiveContainer width="100%" height="100%">
-                  <RechartsPieChart>
-                    <Pie
-                      data={companyDurationData}
-                      cx="50%"
-                      cy="50%"
-                      labelLine={false}
-                      outerRadius={80}
-                      fill="#8884d8"
-                      dataKey="value"
-                      label={({ name, value }) => `${name} ${value}y`}
-                    >
-                      {companyDurationData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                      ))}
-                    </Pie>
-                    <Tooltip />
-                  </RechartsPieChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
+        <div className="mb-16 opacity-0 animate-fade-in animation-delay-1">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {carouselSlides.map((slide, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-2/3 lg:basis-1/2">
+                  <Card className="card-gradient shadow-md h-full">
+                    <CardContent className="p-6 flex flex-col h-full">
+                      <h3 className="text-xl font-semibold mb-2 text-resume-dark-gray">{slide.title}</h3>
+                      <p className="text-resume-medium-gray mb-4">{slide.insight}</p>
+                      <div className="flex-grow">
+                        {slide.chart}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex justify-center mt-6">
+              <CarouselPrevious className="static translate-y-0 mx-2" />
+              <CarouselNext className="static translate-y-0 mx-2" />
+            </div>
+          </Carousel>
         </div>
 
         <h3 className="text-xl font-semibold mb-6 text-resume-dark-gray opacity-0 animate-fade-in animation-delay-2">

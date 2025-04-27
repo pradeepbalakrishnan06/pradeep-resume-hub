@@ -22,8 +22,10 @@ const Index = () => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           const elements = entry.target.querySelectorAll('.opacity-0');
-          elements.forEach(el => {
-            el.classList.add('opacity-100');
+          elements.forEach((el, index) => {
+            setTimeout(() => {
+              el.classList.add('opacity-100');
+            }, index * 150); // Stagger animations for elements within a section
           });
           observer.unobserve(entry.target);
         }
