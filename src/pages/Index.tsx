@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
+import StarMethodSection from "@/components/StarMethodSection";
 import SkillsSection from "@/components/SkillsSection";
 import CertificationsSection from "@/components/CertificationsSection";
-import StarMethodSection from "@/components/StarMethodSection";
 import ContactSection from "@/components/ContactSection";
 
 const Index = () => {
@@ -50,12 +50,13 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
+      <StarMethodSection />
       <SkillsSection />
       <CertificationsSection />
-      <StarMethodSection />
       <ContactSection />
     </div>
   );
 };
 
 export default Index;
+
