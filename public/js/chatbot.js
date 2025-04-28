@@ -57,3 +57,18 @@ async function sendMessage() {
     console.error(error);
   }
 }
+// Floating avatar click handler
+const avatar = document.getElementById('ady-avatar');
+const chatbotContainer = document.getElementById('chatbot-container');
+
+// Check if both elements are present
+if (avatar && chatbotContainer) {
+  avatar.addEventListener('click', () => {
+    // Toggle display of the chatbot container
+    if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
+      chatbotContainer.style.display = "block";  // Show chatbot container
+    } else {
+      chatbotContainer.style.display = "none";  // Hide chatbot container
+    }
+  });
+}
