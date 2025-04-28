@@ -37,7 +37,7 @@
   font-size: 14px;
 }
 
-/* Make Chat Scrollable */
+/* Chat Messages Container */
 #chat-messages {
   height: 400px; /* Adjust as needed */
   overflow-y: auto;
@@ -50,7 +50,7 @@
   position: relative;
 }
 
-/* Scrollbar Styling (for modern browsers) */
+/* Scrollbar Styling */
 #chat-messages::-webkit-scrollbar {
   width: 8px;
 }
@@ -64,46 +64,49 @@
   background-color: #555;
 }
 
+/* Chatbot Main Container */
 #chatbot-container {
   display: flex;
   flex-direction: column;
-  max-width: 100%;
-  width: 360px; /* Set desired width */
+  max-width: 360px;
+  width: 100%;
   position: fixed;
-  bottom: 30px;
+  bottom: 90px;
   right: 30px;
-  background: white;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  border-radius: 8px;
+  border-radius: 12px;
   z-index: 999;
+  display: none; /* Initially hidden */
 }
 
 /* Avatar Styling (floating) */
 #ady-avatar {
   position: fixed;
-  bottom: 90px;
+  bottom: 30px;
   right: 30px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   cursor: pointer;
   transition: transform 0.3s ease-in-out;
-  animation: bounce 2s infinite ease-in-out; /* This adds the up-and-down effect */
+  animation: bounce 2s infinite ease-in-out;
+  z-index: 1000;
 }
 
-/* Bounce animation for avatar */
+/* Bounce Animation for Avatar */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-10px); /* Adjust the value to control the bounce */
+    transform: translateY(-12px);
   }
 }
 
-/* Hover Effect for Avatar */
+/* Avatar Hover Effect */
 #ady-avatar:hover {
-  transform: translateY(-10px);
+  transform: translateY(-8px);
 }
 
 /* Chatbot Welcome Message */
@@ -121,12 +124,29 @@
   font-size: 14px;
   color: #555;
 }
-/* Chat Container Button Styling */
+
+/* Chat Input and Send Button Container */
+.chat-input-container {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+/* Text Input */
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Send Button */
 #chatbot-container button {
   background-color: #007BFF;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 16px;
   font-size: 14px;
   border-radius: 8px;
   cursor: pointer;
@@ -136,4 +156,3 @@
 #chatbot-container button:hover {
   background-color: #0056b3;
 }
-
