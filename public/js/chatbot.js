@@ -22,10 +22,11 @@ async function sendMessage() {
 
   try {
     // Call AI API
-    const response = await fetch('https://api-inference.huggingface.co/models/google/flan-t5-small', {
+    const response = await fetch('https://api-inference.huggingface.co/pipeline/text2text-generation/google/flan-t5-small
+', {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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",  // Replace with your actual API key
+        "Authorization": "Bearer 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",  
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ inputs: userInput })
