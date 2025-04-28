@@ -1,4 +1,6 @@
+
 import { Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
