@@ -1,146 +1,126 @@
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+
+const tabs = [
+  {
+    id: "operations",
+    label: "Operations Management",
+    mobileLabel: "Operations",
+    items: [
+      {
+        situation: "Streamlined change management approvals to boost operational speed without increasing risks.",
+        task: "Reduce approval cycle times while maintaining change integrity.",
+        action: "Re-engineered approval workflows and introduced early conflict detection mechanisms.",
+        result: "Achieved a 20% faster change cycle and 15% reduction in change-related incidents."
+      },
+      {
+        situation: "Lack of visibility into operational SLA adherence.",
+        task: "Improve proactive risk tracking for ongoing operations.",
+        action: "Designed and implemented SLA compliance dashboards to monitor service levels in real time.",
+        result: "Improved SLA compliance tracking by 12%, enabling earlier interventions."
+      },
+      {
+        situation: "Reactive incident response causing delays in operational decision-making.",
+        task: "Enhance proactive operational issue resolution.",
+        action: "Introduced weekly operations health reviews to anticipate risks.",
+        result: "Decreased unplanned incident escalations by 18% over 9 months."
+      }
+    ]
+  },
+  {
+    id: "service",
+    label: "Service Delivery",
+    mobileLabel: "Service",
+    items: [
+      {
+        situation: "Fragmented incident management slowing down resolution.",
+        task: "Improve MTTR while ensuring escalation visibility.",
+        action: "Deployed ServiceNow real-time incident dashboards across L2/L3 support.",
+        result: "Reduced MTTR by 18% and improved transparency for critical incidents."
+      },
+      {
+        situation: "Stakeholder dissatisfaction with service communication during outages.",
+        task: "Improve stakeholder engagement during major incidents.",
+        action: "Redesigned escalation workflows, including proactive stakeholder updates at key stages.",
+        result: "Increased stakeholder satisfaction scores by 12% over 6 months."
+      },
+      {
+        situation: "Gaps in daily operational visibility causing delayed interventions.",
+        task: "Enable faster service recovery through real-time reviews.",
+        action: "Instituted daily standups focusing on incident metrics and action tracking.",
+        result: "Reduced major outage incidents by 10%."
+      }
+    ]
+  },
+  {
+    id: "support",
+    label: "Application Support",
+    mobileLabel: "Support",
+    items: [
+      {
+        situation: "Application transition delays causing business disruption.",
+        task: "Improve transition success rate and timeline adherence.",
+        action: "Led transitions using structured KT plans and HCL's ASSeT™ framework.",
+        result: "Achieved 98% adherence to transition timelines and 25% higher success rates."
+      },
+      {
+        situation: "Lack of standardized application support documentation.",
+        task: "Create operational readiness across incoming applications.",
+        action: "Built standardized Knowledge Transfer playbooks across service streams.",
+        result: "Reduced post-transition escalations by 22%."
+      },
+      {
+        situation: "Ad hoc application monitoring post-transition causing service gaps.",
+        task: "Enable proactive post-transition application support.",
+        action: "Implemented application performance baselining post-handover.",
+        result: "Reduced incident volumes for new applications by 15%."
+      }
+    ]
+  },
+  {
+    id: "devops",
+    label: "DevOps & Transformation",
+    mobileLabel: "DevOps",
+    items: [
+      {
+        situation: "Low DevOps adoption delaying automation and modernization.",
+        task: "Accelerate DevOps culture adoption across support and service teams.",
+        action: "Created DevOps maturity assessments and customized onboarding workshops.",
+        result: "Increased DevOps tool adoption across teams by 35%."
+      },
+      {
+        situation: "Frequent deployment errors impacting service uptime.",
+        task: "Reduce human error in software delivery.",
+        action: "Drove hands-on automation workshops focused on CI/CD pipelines and monitoring-as-code.",
+        result: "Reduced deployment error rates by 22% across critical services."
+      },
+      {
+        situation: "Inconsistent transformation practices across departments.",
+        task: "Standardize transformation programs without sacrificing local agility.",
+        action: "Designed a lightweight transformation framework aligned with operational risk practices.",
+        result: "Improved transformation success rates by 28% while maintaining local flexibility."
+      }
+    ]
+  }
+];
 
 const StarMethodSection = () => {
   const isMobile = useIsMobile();
+  const [currentTab, setCurrentTab] = useState(0);
 
-  const tabs = [
-    {
-      id: "product",
-      label: "Product Strategy",
-      mobileLabel: "Product",
-      items: [
-        {
-          situation: "Critical visibility gap: Product teams lacked real-time progress tracking across 50+ agile teams using disparate tools",
-          task: "Design and implement comprehensive product roadmap visualization & analytics system using Jira and Tableau",
-          action: "Created dynamic Tableau dashboards integrated with Jira, established agile ceremonies, implemented standardized Excel templates for velocity tracking",
-          result: "35% faster release cycles, 90% stakeholder satisfaction, real-time visibility into 200+ epics through integrated Jira-Tableau dashboards"
-        },
-        {
-          situation: "Low feature adoption rates (<40%) across enterprise platform serving 10,000+ users",
-          task: "Develop data-driven adoption strategy leveraging user analytics and feedback",
-          action: "Implemented Tableau user journey analytics, conducted design thinking workshops, created personalized onboarding",
-          result: "Increased feature adoption to 75%, reduced support tickets by 45%, achieved 85% user satisfaction"
-        },
-        {
-          situation: "No standardized sprint health metrics across 15 scrum teams",
-          task: "Establish unified sprint tracking and performance measurement system",
-          action: "Built real-time ServiceNow dashboards tracking velocity, burndown, and quality metrics",
-          result: "20% improvement in sprint predictability, 40% reduction in carry-over stories"
-        }
-      ]
-    },
-    {
-      id: "operations",
-      label: "Operations Management",
-      mobileLabel: "Operations",
-      items: [
-        {
-          situation: "Manual operational processes causing 40% productivity loss across 200+ team members",
-          task: "Implement end-to-end operational automation and standardization using ServiceNow",
-          action: "Developed ServiceNow workflow automation, created standardized Excel templates, established KPI tracking in Tableau",
-          result: "60% efficiency gain, $2M annual cost savings, 95% process standardization achieved with integrated dashboards"
-        },
-        {
-          situation: "Fragmented operational data across 15+ systems causing reporting delays",
-          task: "Create unified operational analytics platform",
-          action: "Built integrated Tableau dashboards with automated data pipelines, implemented real-time monitoring",
-          result: "85% reduction in reporting time, 99% data accuracy, 24/7 operational visibility"
-        }
-      ]
-    },
-    {
-      id: "service",
-      label: "Service Delivery",
-      mobileLabel: "Service",
-      items: [
-        {
-          situation: "30% SLA breaches in critical incident management across global operations",
-          task: "Transform incident management framework and team capabilities",
-          action: "Implemented ITIL-based processes, created incident playbooks, established war room protocols",
-          result: "95% SLA compliance, 50% faster MTTR, zero critical incidents in 6 months"
-        },
-        {
-          situation: "Unstructured service delivery causing 25% resource wastage",
-          task: "Design and implement service delivery optimization program",
-          action: "Created service catalog, implemented resource allocation model, established SLA framework",
-          result: "40% cost optimization, 90% customer satisfaction, 30% improved resource utilization"
-        }
-      ]
-    },
-    {
-      id: "support",
-      label: "Service Excellence",
-      mobileLabel: "Support",
-      items: [
-        {
-          situation: "Critical production issues had 40% recurrence rate impacting SLAs",
-          task: "Implement robust problem management framework",
-          action: "Created ServiceNow-integrated RCA tracking system with automated trend analysis",
-          result: "Reduced recurring issues by 80%, improved MTTR by 60%, achieved 99.5% SLA compliance"
-        },
-        {
-          situation: "Knowledge gaps in 25+ legacy applications risking support continuity",
-          task: "Establish comprehensive knowledge transfer system",
-          action: "Developed structured KT framework with ServiceNow knowledge base integration",
-          result: "100% knowledge coverage, reduced onboarding time by 50%, maintained 98% support SLAs"
-        },
-        {
-          situation: "BCP/DR events required 48+ hours of manual coordination",
-          task: "Streamline BCP/DR event management",
-          action: "Created automated SharePoint workflow system for BCP coordination and testing",
-          result: "Reduced event coordination to 4 hours, achieved 100% DR test success rate"
-        }
-      ]
-    },
-    {
-      id: "devops",
-      label: "DevOps Excellence",
-      mobileLabel: "DevOps",
-      items: [
-        {
-          situation: "200+ applications lacked standardized SRE practices, causing frequent outages",
-          task: "Transform operational reliability through DevOps best practices and monitoring",
-          action: "Implemented Jira workflows for sprint management, established SLOs with Tableau monitoring, created automated health checks in ServiceNow",
-          result: "99.9% availability achieved, 70% reduction in P1 incidents, 45% faster MTTR with real-time Tableau dashboards"
-        },
-        {
-          situation: "Complex release process requiring 5+ days of manual coordination across teams",
-          task: "Automate end-to-end release management workflow",
-          action: "Built SharePoint-based release automation with Power Automate, integrated with ServiceNow for approvals",
-          result: "Reduced release time to 1 day, eliminated 90% of manual tasks, zero deployment failures"
-        },
-        {
-          situation: "No centralized change tracking across 300+ monthly deployments",
-          task: "Create unified change management visibility system",
-          action: "Developed ServiceNow dashboard suite with real-time metrics and automated reporting",
-          result: "100% change compliance, 50% reduction in failed changes, real-time executive visibility"
-        }
-      ]
-    },
-    {
-      id: "data",
-      label: "Data Analytics",
-      mobileLabel: "Analytics",
-      items: [
-        {
-          situation: "Leadership spent 20+ hours monthly compiling performance metrics",
-          task: "Build automated analytics ecosystem",
-          action: "Implemented integrated Tableau/ServiceNow dashboard suite with automated data pipelines",
-          result: "90% reduction in reporting effort, real-time insights for 50+ KPIs"
-        },
-        {
-          situation: "Feature prioritization based on subjective inputs, leading to low ROI",
-          task: "Implement data-driven prioritization framework",
-          action: "Created Tableau analytics suite measuring user engagement, business impact, and technical debt",
-          result: "40% higher feature ROI, 75% stakeholder satisfaction with prioritization"
-        }
-      ]
-    }
-  ];
+  const handleNext = () => {
+    setCurrentTab((prev) => (prev + 1) % tabs.length);
+  };
+
+  const handlePrev = () => {
+    setCurrentTab((prev) => (prev - 1 + tabs.length) % tabs.length);
+  };
 
   const renderCardContent = (tab) => {
     if (isMobile) {
@@ -209,29 +189,49 @@ const StarMethodSection = () => {
           (Situation, Task, Action, Result).
         </p>
         
-        <Tabs defaultValue="product" className="opacity-0 animate-fade-in animation-delay-2">
-          <TabsList className="flex flex-wrap justify-start mb-6 gap-2 overflow-x-auto">
-            {tabs.map((tab) => (
-              <TabsTrigger 
-                key={tab.id} 
-                value={tab.id}
-                className="data-[state=active]:bg-resume-blue data-[state=active]:text-resume-dark-gray px-4 py-2 whitespace-nowrap text-sm md:text-base"
-              >
-                {isMobile ? tab.mobileLabel : tab.label}
-              </TabsTrigger>
-            ))}
-          </TabsList>
+        <div className="relative">
+          <Card className="border-0 shadow-sm">
+            <CardContent className={isMobile ? "p-3" : "p-6"}>
+              <TabsContent value={tabs[currentTab].id} className="mt-4">
+                {renderCardContent(tabs[currentTab])}
+              </TabsContent>
+            </CardContent>
+          </Card>
+
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={handlePrev}
+              className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+            >
+              <ArrowLeft className="h-4 w-4" />
+            </Button>
+          </div>
           
-          {tabs.map((tab) => (
-            <TabsContent key={tab.id} value={tab.id} className="mt-4">
-              <Card className="border-0 shadow-sm">
-                <CardContent className={isMobile ? "p-3" : "p-0"}>
-                  {renderCardContent(tab)}
-                </CardContent>
-              </Card>
-            </TabsContent>
-          ))}
-        </Tabs>
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
+            <Button 
+              variant="outline" 
+              size="icon" 
+              onClick={handleNext}
+              className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+            >
+              <ArrowRight className="h-4 w-4" />
+            </Button>
+          </div>
+
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {tabs.map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                  currentTab === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+                }`}
+                onClick={() => setCurrentTab(index)}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
