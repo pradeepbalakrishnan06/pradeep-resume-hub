@@ -40,3 +40,14 @@ inputBox.addEventListener('focus', () => {
 
   chatMessages.appendChild(aiMsg);
 }
+// floating avatar click handler
+const avatar = document.getElementById('ady-avatar');
+const chatbotContainer = document.getElementById('chatbot-container');
+
+avatar.addEventListener('click', () => {
+  if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
+    chatbotContainer.style.display = "block";
+  } else {
+    chatbotContainer.style.display = "none";
+  }
+});
