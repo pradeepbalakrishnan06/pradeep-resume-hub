@@ -10,7 +10,7 @@ async function sendMessage() {
       welcomeBox.style.display = 'none';
     }
   });
-
+  aiMsg.classList.add("ady-message"); // Instead of 'ai-message'
   // Display user's message
   const chatMessages = document.getElementById("chat-messages");
   const userMsg = document.createElement("div");
