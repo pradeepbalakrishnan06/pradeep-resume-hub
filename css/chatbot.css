@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-#chat-messages {
+#chatbot-container #chat-messages {
   height: 250px;
   overflow-y: auto;
   margin-bottom: 10px;
@@ -19,14 +19,14 @@
   color: #333;
 }
 
-#user-input {
+#chatbot-container #user-input {
   width: 70%;
   padding: 5px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
 
-button {
+#chatbot-container button {
   padding: 6px 10px;
   border-radius: 8px;
   background-color: #2a9d8f;
