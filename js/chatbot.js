@@ -14,7 +14,7 @@ async function sendMessage() {
   const response = await fetch('https://api-inference.huggingface.co/models/google/flan-t5-small', {
     method: "POST",
     headers: {
-      "Authorization": "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",
+      "Authorization": "Bearer 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",
       "Content-Type": "application/json"
     },
     body: JSON.stringify({ inputs: userInput })
