@@ -121,8 +121,8 @@
   font-size: 14px;
   color: #555;
 }
-/* Button Styling */
-button {
+/* Chat Container Button Styling */
+#chatbot-container button {
   background-color: #007BFF;
   color: white;
   border: none;
@@ -133,6 +133,7 @@ button {
   transition: background-color 0.3s ease;
 }
 
-button:hover {
+#chatbot-container button:hover {
   background-color: #0056b3;
 }
+
