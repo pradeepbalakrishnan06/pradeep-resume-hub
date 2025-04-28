@@ -1,3 +1,4 @@
+
 import { Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -108,7 +109,7 @@ const SkillsSharpeningSection = () => {
             <Button 
               variant="outline" 
               size="icon" 
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none"
+              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.prev()}
             >
               <CarouselPrevious className="h-4 w-4" />
@@ -116,7 +117,7 @@ const SkillsSharpeningSection = () => {
             <Button 
               variant="outline" 
               size="icon" 
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none"
+              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.next()}
             >
               <CarouselNext className="h-4 w-4" />
