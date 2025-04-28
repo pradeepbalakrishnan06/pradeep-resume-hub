@@ -30,8 +30,10 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-16 md:py-24 bg-resume-soft-gray/50">
       <div className="container mx-auto px-4">
+        <h2 className="section-title text-xl md:text-3xl font-bold mb-4 md:mb-6 opacity-0 animate-fade-in">
+          Work Experience
+        </h2>
         <h2 className="section-title opacity-0 animate-fade-in">Work Experience</h2>
-        
         <div className="lg:hidden opacity-0 animate-fade-in animation-delay-1">
           {experiences.map((exp, index) => (
             <div key={index} className="mb-8 bg-white p-6 rounded-lg shadow-sm">
