@@ -159,7 +159,7 @@ const SkillsSection = () => {
     },
     {
       title: "Enterprise Experience",
-      insight: "Demonstrated versatility across global financial institutions, delivering impactful solutions using ServiceNow, Jira, and Tableau dashboards.",
+      insight: "Empowered global enterprises through strategic process optimization, operational excellence, and insight-driven decision support.",
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RechartsPieChart>
