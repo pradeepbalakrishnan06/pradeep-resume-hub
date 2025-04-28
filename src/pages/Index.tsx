@@ -6,6 +6,7 @@ import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import StarMethodSection from "@/components/StarMethodSection";
 import SkillsSection from "@/components/SkillsSection";
+import SkillsSharpeningSection from "@/components/SkillsSharpeningSection";
 import CertificationsSection from "@/components/CertificationsSection";
 import ContactSection from "@/components/ContactSection";
 
@@ -51,6 +52,7 @@ const Index = () => {
       <AboutSection />
       <ExperienceSection />
       <StarMethodSection />
+      <SkillsSharpeningSection />
       <SkillsSection />
       <CertificationsSection />
       <ContactSection />
@@ -59,4 +61,3 @@ const Index = () => {
 };
 
 export default Index;
-
