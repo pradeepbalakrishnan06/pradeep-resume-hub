@@ -61,51 +61,69 @@ const SkillsSharpeningSection = () => {
           </p>
         </div>
 
-        <Carousel
-          setApi={setApi}
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full max-w-6xl mx-auto"
-        >
-          <CarouselContent className="-ml-2 md:-ml-4">
-            {skills.map((skill, index) => (
-              <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
-                      <div className="mt-1">
-                        <skill.icon className="w-6 h-6 text-resume-terracotta" />
+        <div className="relative">
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {skills.map((skill, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                  <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="mt-1">
+                          <skill.icon className="w-6 h-6 text-resume-terracotta" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold text-lg text-resume-dark-gray mb-2">
+                            {skill.title}
+                          </h3>
+                          <p className="text-resume-medium-gray">
+                            {skill.description}
+                          </p>
+                        </div>
                       </div>
-                      <div>
-                        <h3 className="font-semibold text-lg text-resume-dark-gray mb-2">
-                          {skill.title}
-                        </h3>
-                        <p className="text-resume-medium-gray">
-                          {skill.description}
-                        </p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {Array.from({ length: skills.length }).map((_, index) => (
-              <button
-                key={index}
-                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                  current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
-                }`}
-                onClick={() => api?.scrollTo(index)}
-              />
-            ))}
-          </div>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
-        </Carousel>
+                    </CardContent>
+                  </Card>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-2 mt-8">
+              {Array.from({ length: skills.length }).map((_, index) => (
+                <button
+                  key={index}
+                  className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                    current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+                  }`}
+                  onClick={() => api?.scrollTo(index)}
+                />
+              ))}
+            </div>
+            <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+              >
+                <CarouselPrevious className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
+              <Button 
+                variant="outline" 
+                size="icon" 
+                className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+              >
+                <CarouselNext className="h-4 w-4" />
+              </Button>
+            </div>
+          </Carousel>
+        </div>
       </div>
     </section>
   );

@@ -1,4 +1,3 @@
-
 import { 
   FileSpreadsheet, 
   BarChart4, 
@@ -204,47 +203,51 @@ const SkillsSection = () => {
           Skills & Insights
         </h2>
         
-        <Card className="w-[90%] mx-auto opacity-0 animate-fade-in hover:shadow-lg transition-shadow duration-300">
-          <CardContent className="p-8">
-            <div className="relative">
-              <div className="grid md:grid-cols-2 gap-8 items-center">
-                <div className="order-1">
-                  {skillInsights[currentIndex].chart}
+        <div className="relative">
+          <Card className="w-[90%] mx-auto opacity-0 animate-fade-in shadow-none border-0">
+            <CardContent className="p-8">
+              <div className="relative">
+                <div className="grid md:grid-cols-2 gap-8 items-center">
+                  <div className="order-1">
+                    <div className="w-full h-full">
+                      {skillInsights[currentIndex].chart}
+                    </div>
+                  </div>
+                  <div className="order-2 space-y-4">
+                    <h3 className="text-3xl font-bold text-resume-dark-gray">
+                      {skillInsights[currentIndex].title}
+                    </h3>
+                    <p className="text-xl text-resume-medium-gray leading-relaxed">
+                      {skillInsights[currentIndex].insight}
+                    </p>
+                  </div>
                 </div>
-                <div className="order-2 space-y-4">
-                  <h3 className="text-3xl font-bold text-resume-dark-gray">
-                    {skillInsights[currentIndex].title}
-                  </h3>
-                  <p className="text-xl text-resume-medium-gray leading-relaxed">
-                    {skillInsights[currentIndex].insight}
-                  </p>
+                
+                <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={handlePrev}
+                    className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+                  >
+                    <ArrowLeft className="h-4 w-4" />
+                  </Button>
+                </div>
+                
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
+                  <Button 
+                    variant="outline" 
+                    size="icon" 
+                    onClick={handleNext}
+                    className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
+                  >
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
-              
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  onClick={handlePrev}
-                  className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
-                >
-                  <ArrowLeft className="h-4 w-4" />
-                </Button>
-              </div>
-              
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
-                <Button 
-                  variant="outline" 
-                  size="icon" 
-                  onClick={handleNext}
-                  className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
-                >
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+            </CardContent>
+          </Card>
+        </div>
 
         <div className="flex items-center justify-center gap-2 mt-8">
           {skillInsights.map((_, index) => (
