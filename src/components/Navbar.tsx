@@ -61,7 +61,7 @@ const Navbar = () => {
             onClick={() => scrollToSection('star')} 
             className="text-resume-dark-gray hover:text-black transition-colors"
           >
-            Projects
+            Achievements
           </button>
           <button 
             onClick={() => scrollToSection('contact')} 
