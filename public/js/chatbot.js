@@ -2,6 +2,15 @@ async function sendMessage() {
   const userInput = document.getElementById("user-input").value.trim();
   if (userInput === "") return; // Prevent empty sending
 
+  // Make the default welcome message disappear
+  const inputBox = document.getElementById('user-input'); // your text input ID
+const welcomeBox = document.querySelector('.chatbot-welcome');
+
+inputBox.addEventListener('focus', () => {
+  if (welcomeBox) {
+    welcomeBox.style.display = 'none';
+  }
+});
   // Display user's message
   const chatMessages = document.getElementById("chat-messages");
   const userMsg = document.createElement("div");
