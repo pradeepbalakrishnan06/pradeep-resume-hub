@@ -27,21 +27,34 @@
   
   <!-- AI Chatbot Code! -->
 <!-- Chatbot UI -->
-<link rel="stylesheet" href="/css/chatbot.css">
-<div id="chatbot-container">
-  <!-- Chatbot welcome Message with Avatar -->
-  <div class="chatbot-welcome">
-  <img src="assets/ady-avatar.svg" alt="Ady Avatar" class="ady-avatar" />
-  <div class="welcome-text">
-    <h2>Hello and welcome! I'm Ady, your virtual assistant.</h2>
-    <p>I'm here to guide you through Pradeep's professional journey. Feel free to ask me about skills, achievements, certifications, and more.</p>
-  </div>
+<!-- AI Chatbot Floating Avatar and UI -->
+
+<!-- 1. Floating Ady Avatar -->
+<div class="ady-avatar-float" id="ady-avatar">
+  <img src="assets/ady-avatar.svg" alt="Ady Avatar" />
 </div>
-<!-- Chatbot  welcome Message with Avatar End -->
+
+<!-- 2. Chatbot UI (Hidden initially) -->
+<div id="chatbot-container">
+  <!-- Chatbot Welcome Message with Avatar -->
+  <div class="chatbot-welcome">
+    <img src="assets/ady-avatar.svg" alt="Ady Avatar" class="ady-avatar" />
+    <div class="welcome-text">
+      <h2>Hello and welcome! I'm Ady, your virtual assistant.</h2>
+      <p>I'm here to guide you through Pradeep's professional journey. Feel free to ask me about skills, achievements, certifications, and more.</p>
+    </div>
+  </div> <!-- 👈 you missed this closing earlier! -->
+  
+  <!-- Chat Messages -->
   <div id="chat-messages"></div>
+  
+  <!-- User Input -->
   <input type="text" id="user-input" placeholder="Ask me anything..." />
   <button onclick="sendMessage()">Send</button>
 </div>
+
+<!-- JS and CSS -->
+<link rel="stylesheet" href="/css/chatbot.css">
 <script src="/js/chatbot.js"></script>
   </body>
 </html>
