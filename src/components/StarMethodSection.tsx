@@ -192,9 +192,11 @@ const StarMethodSection = () => {
         <div className="relative">
           <Card className="border-0 shadow-sm">
             <CardContent className={isMobile ? "p-3" : "p-6"}>
-              <TabsContent value={tabs[currentTab].id} className="mt-4">
-                {renderCardContent(tabs[currentTab])}
-              </TabsContent>
+              <Tabs value={tabs[currentTab].id}>
+                <TabsContent value={tabs[currentTab].id} className="mt-4">
+                  {renderCardContent(tabs[currentTab])}
+                </TabsContent>
+              </Tabs>
             </CardContent>
           </Card>
 
