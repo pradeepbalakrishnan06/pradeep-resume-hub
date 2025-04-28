@@ -1,3 +1,4 @@
+
 import { 
   FileSpreadsheet, 
   BarChart4, 
@@ -101,9 +102,9 @@ const SkillsSection = () => {
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RadarChart outerRadius={90} data={skillsRadarData}>
-            <PolarGrid />
+            <PolarGrid stroke="#E7E8D1" />
             <PolarAngleAxis dataKey="skill" />
-            <PolarRadiusAxis domain={[0, 100]} />
+            <PolarRadiusAxis domain={[0, 100]} stroke="#A7BEAE" />
             <Radar 
               name="Skills" 
               dataKey="value" 
@@ -122,8 +123,8 @@ const SkillsSection = () => {
       chart: (
         <ResponsiveContainer width="100%" height={300}>
           <RechartsBarChart data={experienceByLevel}>
-            <XAxis dataKey="name" />
-            <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft' }} />
+            <XAxis dataKey="name" stroke="#A7BEAE" />
+            <YAxis label={{ value: 'Years', angle: -90, position: 'insideLeft', fill: "#A7BEAE" }} stroke="#A7BEAE" />
             <Tooltip />
             <Bar dataKey="years" fill="#B85042" />
           </RechartsBarChart>
@@ -145,6 +146,7 @@ const SkillsSection = () => {
               fill="#8884d8"
               dataKey="value"
               label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+              stroke="none"
             >
               {locationData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -171,6 +173,7 @@ const SkillsSection = () => {
               fill="#8884d8"
               dataKey="value"
               label={({ name, value }) => `${name} ${value}y`}
+              stroke="none"
             >
               {companyDurationData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
@@ -223,7 +226,7 @@ const SkillsSection = () => {
                   variant="outline" 
                   size="icon" 
                   onClick={handlePrev}
-                  className="rounded-full bg-red-500 hover:bg-red-600 text-white"
+                  className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
                 >
                   <ArrowLeft className="h-4 w-4" />
                 </Button>
@@ -234,7 +237,7 @@ const SkillsSection = () => {
                   variant="outline" 
                   size="icon" 
                   onClick={handleNext}
-                  className="rounded-full bg-red-500 hover:bg-red-600 text-white"
+                  className="rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white"
                 >
                   <ArrowRight className="h-4 w-4" />
                 </Button>
@@ -242,6 +245,18 @@ const SkillsSection = () => {
             </div>
           </CardContent>
         </Card>
+
+        <div className="flex items-center justify-center gap-2 mt-8">
+          {skillInsights.map((_, index) => (
+            <button
+              key={index}
+              className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                currentIndex === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
 
         <h3 className="text-xl font-semibold mt-16 mb-6 text-resume-dark-gray opacity-0 animate-fade-in">
           Tools & Technologies

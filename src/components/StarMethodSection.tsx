@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -192,7 +192,19 @@ const StarMethodSection = () => {
         <div className="relative">
           <Card className="border-0 shadow-sm">
             <CardContent className={isMobile ? "p-3" : "p-6"}>
-              <Tabs value={tabs[currentTab].id}>
+              <Tabs defaultValue={tabs[0].id} value={tabs[currentTab].id} className="w-full">
+                <TabsList className="mb-6 w-full grid grid-cols-2 md:grid-cols-4 bg-white">
+                  {tabs.map((tab, index) => (
+                    <TabsTrigger 
+                      key={tab.id} 
+                      value={tab.id}
+                      onClick={() => setCurrentTab(index)}
+                      className="data-[state=active]:bg-resume-terracotta data-[state=active]:text-white"
+                    >
+                      {isMobile ? tab.mobileLabel : tab.label}
+                    </TabsTrigger>
+                  ))}
+                </TabsList>
                 <TabsContent value={tabs[currentTab].id} className="mt-4">
                   {renderCardContent(tabs[currentTab])}
                 </TabsContent>
