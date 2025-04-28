@@ -1,4 +1,5 @@
 async function sendMessage() {
+  console.log("🔔 sendMessage() called");
   const userInput = document.getElementById("user-input").value.trim();
   if (userInput === "") return; // Prevent empty sending
 
