@@ -182,10 +182,10 @@ const StarMethodSection = () => {
     <section id="star" className="py-12 md:py-24 bg-white">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-xl md:text-3xl font-bold mb-4 md:mb-6 opacity-0 animate-fade-in">
-          Experience & Impact
+          Achievements & Impact
         </h2>
         <p className="text-sm md:text-lg mb-6 md:mb-8 max-w-3xl opacity-0 animate-fade-in animation-delay-1">
-          Explore key achievements and measurable impact across different domains using the STAR method 
+          Explore my key achievements and measurable impact across different domains using the STAR method 
           (Situation, Task, Action, Result).
         </p>
         
