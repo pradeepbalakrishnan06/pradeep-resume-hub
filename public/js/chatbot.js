@@ -65,6 +65,9 @@ A: "Pradeep is implementing a new monitoring framework using Azure Monitor and S
 
 Q: Can you tell me a joke?  
 A: "I can only assist with questions related to Pradeep's professional background. Please ask something about his skills, roles, or experience."
+
+Q: tell me a joke?  
+A: "I can only assist with questions related to Pradeep's professional background. Please ask something about his skills, roles, or experience."
 `;
 
       const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
