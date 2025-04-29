@@ -156,8 +156,9 @@
   background-color: #0056b3;
 }
 .ai-message {
-  font-style: italic;
-  color: #888;
+  font-style: normal;
+  color: #2c2c2c; /* Replace with a dark color from your palette */
+  font-weight: 500;
 }
 /* Close Button (X in top-right corner of chatbot) */
 #close-chatbot {
