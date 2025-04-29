@@ -1,3 +1,10 @@
+async function fetchDataset() {
+  // Fetch the dataset (make sure it's in the public folder or correct path)
+  const response = await fetch("/data/dataset.json");  // Ensure the correct path
+  const data = await response.json();
+  return data.questions;  // Returning the questions array
+}
+
 async function sendMessage() {
   const userInput = document.getElementById("user-input").value.trim();
   if (userInput === "") return; // Prevent empty sending
@@ -21,8 +28,22 @@ async function sendMessage() {
   document.getElementById("user-input").value = "";
 
   try {
-    // Call OpenRouter AI API
-    const systemPrompt = `
+    // Fetch the dataset (Q&A pairs) from dataset.json
+    const dataset = await fetchDataset();
+
+    // Check if the user's input matches any question in the dataset
+    const matchingQA = dataset.find(item => 
+      userInput.toLowerCase().includes(item.question.toLowerCase())
+    );
+
+    let aiResponse = "I can only assist with questions related to Pradeep's professional background.";
+
+    // If a match is found, respond with the answer from the dataset
+    if (matchingQA) {
+      aiResponse = matchingQA.answer;
+    } else {
+      // If no match, call OpenRouter AI API for a generic fallback response
+      const systemPrompt = `
 You are Ady, a professional and friendly virtual assistant for Pradeep Balakrishnan.
 
 You must ONLY respond to queries related to Pradeep’s professional journey, achievements, skills, certifications, roles, leadership style, tools he has used, projects he has led, and his learning path.
@@ -61,44 +82,39 @@ Only respond if you are 100% sure the answer relates to Pradeep. Otherwise, say:
 "I can only assist with questions related to Pradeep's professional background."
 `;
 
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: "POST",
-      headers: {
-        "Authorization": "Bearer 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",  // <-- paste your key
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        model: "google/gemma-3-1b-it:free",  // Change to model of your choice.
-        messages: [
-    {
-      "role": "system",
-      "content": systemPrompt
-    },
-    {
-      "role": "user",
-      "content": userInput
+      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer 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",  // <-- paste your key
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          model: "google/gemma-3-1b-it:free",
+          messages: [
+            {
+              "role": "system",
+              "content": systemPrompt
+            },
+            {
+              "role": "user",
+              "content": userInput
+            }
+          ]
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      aiResponse = data.choices[0]?.message?.content || "Ady: Sorry, I couldn't generate a reply.";
     }
-  ]
-      })
-    });
 
-    if (!response.ok) {
-      throw new Error(`Error: ${response.statusText}`);
-    }
-
-    const data = await response.json();
-
+    // Display AI's response
     const aiMsg = document.createElement("div");
-    const aiText = data.choices[0]?.message?.content;
-
-    if (aiText) {
-      aiMsg.innerText = "Ady: " + aiText.trim();
-      aiMsg.classList.add("ai-message");
-    } else {
-      aiMsg.innerText = "Ady: Sorry, I couldn't generate a reply.";
-      aiMsg.classList.add("ai-message");
-    }
-
+    aiMsg.innerText = "Ady: " + aiResponse;
+    aiMsg.classList.add("ai-message");
     chatMessages.appendChild(aiMsg);
     chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
   } catch (error) {
@@ -109,6 +125,7 @@ Only respond if you are 100% sure the answer relates to Pradeep. Otherwise, say:
     console.error(error);
   }
 }
+
 // Toggle chatbot when avatar is clicked
 document.getElementById("ady-avatar").addEventListener("click", () => {
   const chatbotContainer = document.getElementById("chatbot-container");
