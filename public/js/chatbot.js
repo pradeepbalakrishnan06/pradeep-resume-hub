@@ -1,4 +1,3 @@
-// Function to send the message and get the response
 async function sendMessage() {
   const userInput = document.getElementById("user-input").value.trim();
   if (userInput === "") return; // Prevent empty sending
@@ -19,17 +18,22 @@ async function sendMessage() {
   userMsg.classList.add("user-message");
   chatMessages.appendChild(userMsg);
 
-  document.getElementById("user-input").value = ""; // Clear input field
+  document.getElementById("user-input").value = "";
 
   try {
-    // Call AI API (Fix the URL here)
-    const response = await fetch('https://api-inference.huggingface.co/pipeline/text2text-generation/google/flan-t5-small', {
+    // Call OpenRouter AI API
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: "POST",
       headers: {
-        "Authorization": "Bearer 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", // Your API Key
+        "Authorization": "Bearer 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",  // <-- paste your key
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ inputs: userInput })
+      body: JSON.stringify({
+        model: "google/gemma-3-1b-it:free",  // Change to model of your choice.
+        messages: [
+          { role: "user", content: userInput }
+        ]
+      })
     });
 
     if (!response.ok) {
@@ -37,40 +41,25 @@ async function sendMessage() {
     }
 
     const data = await response.json();
-    const aiMsg = document.createElement("div");
 
-    // Check if the response contains generated text
-    if (Array.isArray(data) && data[0]?.generated_text) {
-      aiMsg.innerText = "Ady: " + data[0].generated_text;
-      aiMsg.classList.add("ady-message"); // Add class for Ady message
+    const aiMsg = document.createElement("div");
+    const aiText = data.choices[0]?.message?.content;
+
+    if (aiText) {
+      aiMsg.innerText = "Ady: " + aiText.trim();
+      aiMsg.classList.add("ai-message");
     } else {
       aiMsg.innerText = "Ady: Sorry, I couldn't generate a reply.";
-      aiMsg.classList.add("ady-message"); // Add class for Ady message
+      aiMsg.classList.add("ai-message");
     }
 
     chatMessages.appendChild(aiMsg);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to the bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
   } catch (error) {
     const aiMsg = document.createElement("div");
     aiMsg.innerText = "Ady: Oops, something went wrong.";
-    aiMsg.classList.add("ady-message"); // Add class for Ady message
+    aiMsg.classList.add("ai-message");
     chatMessages.appendChild(aiMsg);
     console.error(error);
   }
-}
-
-// Floating avatar click handler
-const avatar = document.getElementById('ady-avatar');
-const chatbotContainer = document.getElementById('chatbot-container');
-
-// Ensure that both elements are found before adding event listener
-if (avatar && chatbotContainer) {
-  avatar.addEventListener('click', () => {
-    // Toggle display of the chatbot container (show or hide)
-    if (chatbotContainer.style.display === "none" || chatbotContainer.style.display === "") {
-      chatbotContainer.style.display = "block";  // Show chatbot container
-    } else {
-      chatbotContainer.style.display = "none";  // Hide chatbot container
-    }
-  });
 }
