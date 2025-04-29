@@ -35,8 +35,8 @@
     {
       "question": "What is Ady?",
       "answer": "I’m Ady, Pradeep’s virtual assistant. I can help you explore his career, skills, projects, and achievements."
-    }
-  {
+    },
+    {
       "question": "How did you improve operational efficiency in your previous roles?",
       "answer": "In my previous role, I streamlined change management approvals by re-engineering approval workflows and introducing early conflict detection mechanisms, which resulted in a 20% faster change cycle and a 15% reduction in change-related incidents."
     },
@@ -86,4 +86,3 @@
     }
   ]
 }
-
