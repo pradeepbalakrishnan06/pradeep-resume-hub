@@ -1,4 +1,3 @@
-
 import { Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -45,7 +44,6 @@ const SkillsSharpeningSection = () => {
 
   useEffect(() => {
     if (!api) return;
-
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
@@ -63,19 +61,16 @@ const SkillsSharpeningSection = () => {
           </p>
         </div>
 
-        <div className="relative">
+        <div className="relative max-w-6xl mx-auto">
           <Carousel
             setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto"
+            opts={{ align: "start", loop: true }}
+            className="relative"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {skills.map((skill, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300">
+                  <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300 h-full">
                     <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="mt-1">
@@ -95,34 +90,39 @@ const SkillsSharpeningSection = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <div className="flex items-center justify-center gap-2 mt-8">
-              {Array.from({ length: skills.length }).map((_, index) => (
-                <button
-                  key={index}
-                  className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                    current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
-                  }`}
-                  onClick={() => api?.scrollTo(index)}
-                />
-              ))}
-            </div>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+
+            {/* Custom Arrow Buttons */}
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.prev()}
             >
               <CarouselPrevious className="h-4 w-4" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+
+            <Button
+              variant="outline"
+              size="icon"
+              className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.next()}
             >
               <CarouselNext className="h-4 w-4" />
             </Button>
           </Carousel>
+
+          {/* Pagination Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {Array.from({ length: skills.length }).map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                  current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+                }`}
+                onClick={() => api?.scrollTo(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
