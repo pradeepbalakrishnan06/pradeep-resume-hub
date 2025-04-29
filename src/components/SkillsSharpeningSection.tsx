@@ -1,12 +1,8 @@
-import { Star, LineChart, Cloud, PieChart, Lock, ChevronLeft, ChevronRight } from "lucide-react";
+import { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronLeft, ChevronRight, Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState, useEffect } from "react";
 
 const skills = [
   {
@@ -37,89 +33,89 @@ const skills = [
 ];
 
 const SkillsSharpeningSection = () => {
-  const [api, setApi] = useState<any>();
-  const [current, setCurrent] = useState(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollTo = useCallback((index: number) => {
+    if (emblaApi) emblaApi.scrollTo(index);
+  }, [emblaApi]);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   useEffect(() => {
-    if (!api) return;
-    api.on("select", () => {
-      setCurrent(api.selectedScrollSnap());
+    if (!emblaApi) return;
+
+    emblaApi.on("select", () => {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
     });
-  }, [api]);
+  }, [emblaApi]);
 
   return (
     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-12 opacity-0 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-bold text-resume-dark-gray mb-4 flex items-center justify-center gap-2">
-            🚀 Skills I'm Sharpening
-          </h2>
-          <p className="text-xl text-resume-medium-gray max-w-3xl mx-auto">
-            As part of my commitment to continuous growth, I am currently advancing skills across key future-focused areas:
-          </p>
-        </div>
+      <div className="container mx-auto px-4 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-resume-dark-gray">
+          🚀 Skills I'm Sharpening
+        </h2>
+        <p className="text-xl text-resume-medium-gray max-w-3xl mx-auto mb-12">
+          As part of my commitment to continuous growth, I am currently advancing skills across key future-focused areas:
+        </p>
 
-        <div className="relative">
-          <Carousel
-            setApi={setApi}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-6xl mx-auto"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {skills.map((skill, index) => (
-                <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="mt-1">
-                          <skill.icon className="w-6 h-6 text-resume-terracotta" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold text-lg text-resume-dark-gray mb-2">
-                            {skill.title}
-                          </h3>
-                          <p className="text-resume-medium-gray">
-                            {skill.description}
-                          </p>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
-              ))}
-            </CarouselContent>
-
-            {/* Arrow Buttons */}
-            <Button
-              onClick={() => api?.prev()}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
-            >
-              <ChevronLeft className="h-5 w-5" />
-            </Button>
-
-            <Button
-              onClick={() => api?.next()}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
-            >
-              <ChevronRight className="h-5 w-5" />
-            </Button>
-          </Carousel>
-
-          {/* Dots */}
-          <div className="flex items-center justify-center gap-2 mt-8">
-            {Array.from({ length: skills.length }).map((_, index) => (
-              <button
+        <div className="relative overflow-hidden" ref={emblaRef}>
+          <div className="flex">
+            {skills.map((skill, index) => (
+              <div
+                className="min-w-[90%] md:min-w-[50%] lg:min-w-[33.33%] px-2"
                 key={index}
-                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                  current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
-                }`}
-                onClick={() => api?.scrollTo(index)}
-              />
+              >
+                <Card className="h-full border-none shadow-sm hover:shadow-md transition-shadow duration-300 bg-gradient-to-br from-resume-light-gray to-white">
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <skill.icon className="w-6 h-6 text-resume-terracotta" />
+                      <div>
+                        <h3 className="font-semibold text-lg text-resume-dark-gray mb-2">
+                          {skill.title}
+                        </h3>
+                        <p className="text-resume-medium-gray">{skill.description}</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
             ))}
           </div>
+
+          {/* Navigation */}
+          <Button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-resume-terracotta hover:bg-resume-terracotta/90 text-white rounded-full h-10 w-10"
+          >
+            <ChevronLeft />
+          </Button>
+          <Button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-resume-terracotta hover:bg-resume-terracotta/90 text-white rounded-full h-10 w-10"
+          >
+            <ChevronRight />
+          </Button>
+        </div>
+
+        {/* Dots */}
+        <div className="flex justify-center gap-2 mt-6">
+          {skills.map((_, index) => (
+            <button
+              key={index}
+              className={`h-2 w-2 rounded-full transition-all ${
+                selectedIndex === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+              }`}
+              onClick={() => scrollTo(index)}
+            />
+          ))}
         </div>
       </div>
     </section>
