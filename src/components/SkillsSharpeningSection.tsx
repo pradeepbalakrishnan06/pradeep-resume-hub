@@ -1,9 +1,11 @@
-import { Star, LineChart, Cloud, PieChart, Lock, ArrowLeft, ArrowRight } from "lucide-react";
+import { Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
-  CarouselItem
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
@@ -42,13 +44,14 @@ const SkillsSharpeningSection = () => {
 
   useEffect(() => {
     if (!api) return;
+
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 opacity-0 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-resume-dark-gray mb-4 flex items-center justify-center gap-2">
@@ -62,14 +65,17 @@ const SkillsSharpeningSection = () => {
         <div className="relative">
           <Carousel
             setApi={setApi}
-            opts={{ align: "start", loop: true }}
+            opts={{
+              align: "start",
+              loop: true,
+            }}
             className="w-full max-w-6xl mx-auto"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
               {skills.map((skill, index) => (
                 <CarouselItem key={index} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
                   <Card className="bg-gradient-to-br from-resume-light-gray to-white border-none shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <CardContent className="p-8">
+                    <CardContent className="p-6">
                       <div className="flex items-start gap-4">
                         <div className="mt-1">
                           <skill.icon className="w-6 h-6 text-resume-terracotta" />
@@ -89,7 +95,7 @@ const SkillsSharpeningSection = () => {
               ))}
             </CarouselContent>
 
-            {/* Dot indicators */}
+            {/* Indicators */}
             <div className="flex items-center justify-center gap-2 mt-8">
               {Array.from({ length: skills.length }).map((_, index) => (
                 <button
@@ -102,23 +108,22 @@ const SkillsSharpeningSection = () => {
               ))}
             </div>
 
-            {/* Arrow buttons */}
+            {/* Navigation Buttons */}
             <Button 
               variant="outline" 
               size="icon" 
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 -translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.prev()}
             >
-              <ArrowLeft className="h-4 w-4" />
+              <CarouselPrevious className="h-4 w-4" />
             </Button>
-
             <Button 
               variant="outline" 
               size="icon" 
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 translate-x-12 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
               onClick={() => api?.next()}
             >
-              <ArrowRight className="h-4 w-4" />
+              <CarouselNext className="h-4 w-4" />
             </Button>
           </Carousel>
         </div>
