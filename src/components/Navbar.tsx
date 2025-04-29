@@ -1,10 +1,10 @@
-
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -13,7 +13,7 @@ const Navbar = () => {
         setIsScrolled(false);
       }
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -22,6 +22,7 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false); // Close menu on selection
     }
   };
 
@@ -32,49 +33,46 @@ const Navbar = () => {
     )}>
       <div className="container mx-auto flex justify-between items-center px-4">
         <div className="text-resume-dark-gray font-bold text-lg">Pradeep Balakrishnan</div>
+
+        {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
-          <button 
-            onClick={() => scrollToSection('about')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            About
-          </button>
-          <button 
-            onClick={() => scrollToSection('experience')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            Experience
-          </button>
-          <button 
-            onClick={() => scrollToSection('star')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            Achievements
-          </button>
-          <button 
-            onClick={() => scrollToSection('skills')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            Skills
-          </button>
-          <button 
-            onClick={() => scrollToSection('certifications')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            Certifications
-          </button>
-          <button 
-            onClick={() => scrollToSection('contact')} 
-            className="text-resume-dark-gray hover:text-black transition-colors"
-          >
-            Contact
-          </button>
+          {["about", "experience", "star", "skills", "certifications", "contact"].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="text-resume-dark-gray hover:text-black transition-colors"
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
         </div>
-        <div className="block md:hidden">
-          {/* Simplified mobile menu - we can enhance this later if desired */}
-          <button className="p-2 text-resume-dark-gray">Menu</button>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button
+            className="p-2 text-resume-dark-gray"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div className="md:hidden flex flex-col gap-4 px-4 pb-4 pt-2 bg-white shadow-md">
+          {["about", "experience", "star", "skills", "certifications", "contact"].map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="text-resume-dark-gray hover:text-black transition-colors text-left"
+            >
+              {section.charAt(0).toUpperCase() + section.slice(1)}
+            </button>
+          ))}
+        </div>
+      )}
     </nav>
   );
 };
