@@ -10,11 +10,80 @@
     },
     {
       "question": "What is Pradeep's leadership style?",
-      "answer": "Pradeep’s leadership style is collaborative, transparent, and data-driven, focusing on empowering teams and driving continuous improvement."
+      "answer": "Pradeep leads with a collaborative and data-driven approach, focusing on transparency, team empowerment, and continuous improvement."
     },
     {
       "question": "What tools does Pradeep use?",
       "answer": "Pradeep is proficient in tools like Tableau, Power BI, Excel, ServiceNow, Azure, and AWS."
+    },
+    {
+      "question": "How soon can Pradeep join?",
+      "answer": "Pradeep is available immediately to join, with Bangalore as his preferred location. However, he is open to relocation if the role is a good fit for his skills and career growth."
+    },
+    {
+      "question": "Is Pradeep open to relocation?",
+      "answer": "Yes, Pradeep is open to relocation if the role aligns with his skills and professional goals."
+    },
+    {
+      "question": "Tell me about his experience with Tableau and Power BI.",
+      "answer": "Pradeep uses Tableau and Power BI for real-time ITSM dashboards and service performance analysis."
+    },
+    {
+      "question": "Is Pradeep certified in cloud technologies?",
+      "answer": "Yes, Pradeep is certified in Azure Fundamentals and AWS."
+    },
+    {
+      "question": "What is Ady?",
+      "answer": "I’m Ady, Pradeep’s virtual assistant. I can help you explore his career, skills, projects, and achievements."
+    }
+  {
+      "question": "How did you improve operational efficiency in your previous roles?",
+      "answer": "In my previous role, I streamlined change management approvals by re-engineering approval workflows and introducing early conflict detection mechanisms, which resulted in a 20% faster change cycle and a 15% reduction in change-related incidents."
+    },
+    {
+      "question": "How did you enhance SLA compliance and operational visibility?",
+      "answer": "I designed and implemented real-time SLA compliance dashboards to monitor service levels, improving SLA compliance tracking by 12%, which allowed for earlier interventions in operations."
+    },
+    {
+      "question": "What steps did you take to proactively resolve operational issues?",
+      "answer": "I introduced weekly operations health reviews to anticipate risks, which led to an 18% reduction in unplanned incident escalations over 9 months."
+    },
+    {
+      "question": "How did you improve incident management and reduce MTTR?",
+      "answer": "By deploying ServiceNow real-time incident dashboards for L2/L3 support, I reduced Mean Time to Resolution (MTTR) by 18% and enhanced transparency for critical incidents."
+    },
+    {
+      "question": "How did you handle stakeholder dissatisfaction during service outages?",
+      "answer": "I redesigned escalation workflows and included proactive stakeholder updates at key stages during major incidents, which increased stakeholder satisfaction scores by 12% over 6 months."
+    },
+    {
+      "question": "How did you improve daily operational visibility and response times?",
+      "answer": "I instituted daily standups focused on incident metrics and action tracking, which reduced major outage incidents by 10%."
+    },
+    {
+      "question": "How did you address delays in application transitions?",
+      "answer": "I led application transitions using structured Knowledge Transfer (KT) plans and HCL’s ASSeT™ framework, achieving 98% adherence to transition timelines and 25% higher success rates."
+    },
+    {
+      "question": "How did you improve application support documentation and operational readiness?",
+      "answer": "I built standardized Knowledge Transfer playbooks across service streams, which reduced post-transition escalations by 22%."
+    },
+    {
+      "question": "How did you ensure proactive application monitoring post-transition?",
+      "answer": "I implemented application performance baselining post-handover, reducing incident volumes for new applications by 15%."
+    },
+    {
+      "question": "How did you accelerate DevOps adoption across your teams?",
+      "answer": "I created DevOps maturity assessments and customized onboarding workshops, increasing DevOps tool adoption by 35% across teams."
+    },
+    {
+      "question": "How did you reduce deployment errors impacting service uptime?",
+      "answer": "I drove hands-on automation workshops focused on CI/CD pipelines and monitoring-as-code, resulting in a 22% reduction in deployment error rates across critical services."
+    },
+    {
+      "question": "How did you standardize transformation programs without losing agility?",
+      "answer": "I designed a lightweight transformation framework that aligned with operational risk practices, boosting modernization KPIs alignment by 28% across regions."
     }
   ]
 }
+
