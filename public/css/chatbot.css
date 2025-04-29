@@ -155,3 +155,7 @@
 #chatbot-container button:hover {
   background-color: #0056b3;
 }
+.ai-message {
+  font-style: italic;
+  color: #888;
+}
