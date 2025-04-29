@@ -212,7 +212,7 @@ const StarMethodSection = () => {
             </CardContent>
           </Card>
 
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-12">
+          <div className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 -translate-x-12">
             <Button 
               variant="outline" 
               size="icon" 
@@ -223,7 +223,7 @@ const StarMethodSection = () => {
             </Button>
           </div>
           
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-12">
+          <div className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 translate-x-12">
             <Button 
               variant="outline" 
               size="icon" 
