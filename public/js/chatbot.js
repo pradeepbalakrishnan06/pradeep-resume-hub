@@ -63,3 +63,21 @@ async function sendMessage() {
     console.error(error);
   }
 }
+// Toggle chatbot when avatar is clicked
+document.getElementById("ady-avatar").addEventListener("click", () => {
+  const chatbotContainer = document.getElementById("chatbot-container");
+  chatbotContainer.style.display =
+    chatbotContainer.style.display === "none" || chatbotContainer.style.display === ""
+      ? "flex"
+      : "none";
+
+  // Focus input when opened
+  if (chatbotContainer.style.display === "flex") {
+    setTimeout(() => document.getElementById("user-input").focus(), 100);
+  }
+});
+
+// Close chatbot when X is clicked
+document.getElementById("chatbot-close").addEventListener("click", () => {
+  document.getElementById("chatbot-container").style.display = "none";
+});
