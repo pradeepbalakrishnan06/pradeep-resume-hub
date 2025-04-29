@@ -36,7 +36,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex gap-8">
-          {["about", "experience", "star", "skills", "certifications", "contact"].map((section) => (
+          {["about", "experience", "Achievements", "skills", "certifications", "contact"].map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}
@@ -62,7 +62,7 @@ const Navbar = () => {
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="md:hidden flex flex-col gap-4 px-4 pb-4 pt-2 bg-white shadow-md">
-          {["about", "experience", "star", "skills", "certifications", "contact"].map((section) => (
+          {["about", "experience", "Achievements", "skills", "certifications", "contact"].map((section) => (
             <button
               key={section}
               onClick={() => scrollToSection(section)}
