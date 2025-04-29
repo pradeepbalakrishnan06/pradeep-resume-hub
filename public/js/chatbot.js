@@ -31,8 +31,15 @@ async function sendMessage() {
       body: JSON.stringify({
         model: "google/gemma-3-1b-it:free",  // Change to model of your choice.
         messages: [
-          { role: "user", content: userInput }
-        ]
+    {
+      "role": "system",
+      "content": "You are Ady, a helpful and professional virtual assistant for Pradeep. You must only respond to queries related to Pradeep's professional background, achievements, skills, certifications, and experience. Do not respond to general queries, news, stories, jokes, or personal topics."
+    },
+    {
+      "role": "user",
+      "content": "Hello"
+    }
+  ]
       })
     });
 
