@@ -1,11 +1,9 @@
-import { Star, LineChart, Cloud, PieChart, Lock } from "lucide-react";
+import { Star, LineChart, Cloud, PieChart, Lock, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
 import { useState, useEffect } from "react";
@@ -44,14 +42,13 @@ const SkillsSharpeningSection = () => {
 
   useEffect(() => {
     if (!api) return;
-
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api]);
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5 overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 opacity-0 animate-fade-in">
           <h2 className="text-3xl md:text-4xl font-bold text-resume-dark-gray mb-4 flex items-center justify-center gap-2">
@@ -95,37 +92,34 @@ const SkillsSharpeningSection = () => {
               ))}
             </CarouselContent>
 
-            {/* Indicators */}
-            <div className="flex items-center justify-center gap-2 mt-8">
-              {Array.from({ length: skills.length }).map((_, index) => (
-                <button
-                  key={index}
-                  className={`h-2 w-2 rounded-full transition-colors duration-300 ${
-                    current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
-                  }`}
-                  onClick={() => api?.scrollTo(index)}
-                />
-              ))}
-            </div>
-
-            {/* Navigation Buttons */}
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+            {/* Arrow Buttons */}
+            <Button
               onClick={() => api?.prev()}
+              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
             >
-              <CarouselPrevious className="h-4 w-4" />
+              <ChevronLeft className="h-5 w-5" />
             </Button>
-            <Button 
-              variant="outline" 
-              size="icon" 
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
+
+            <Button
               onClick={() => api?.next()}
+              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 rounded-full bg-resume-terracotta hover:bg-resume-terracotta/90 text-white border-none h-10 w-10"
             >
-              <CarouselNext className="h-4 w-4" />
+              <ChevronRight className="h-5 w-5" />
             </Button>
           </Carousel>
+
+          {/* Dots */}
+          <div className="flex items-center justify-center gap-2 mt-8">
+            {Array.from({ length: skills.length }).map((_, index) => (
+              <button
+                key={index}
+                className={`h-2 w-2 rounded-full transition-colors duration-300 ${
+                  current === index ? "bg-resume-terracotta" : "bg-resume-light-gray"
+                }`}
+                onClick={() => api?.scrollTo(index)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
