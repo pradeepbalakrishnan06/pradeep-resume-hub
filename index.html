@@ -37,15 +37,20 @@
 <!-- 2. Chatbot UI (Hidden initially) -->
 <div id="chatbot-container">
   <button id="close-chatbot" aria-label="Close chatbot">×</button>
-  <!-- Chatbot Welcome Message with Avatar -->
-  <div class="chatbot-welcome">
-    <img src="assets/ady-avatar.svg" alt="Ady Avatar" class="ady-avatar" />
-    <div class="welcome-text">
-      <h2>Hello and welcome! I'm Ady, your virtual assistant.</h2>
-      <p>I'm here to guide you through Pradeep's professional journey. Feel free to ask me about skills, achievements, certifications, and more.</p>
+  <!-- Chatbot Welcome Message with Avatar and Note -->
+<div class="chatbot-welcome flex items-start gap-4 p-4 bg-red-50 border border-red-200 rounded shadow-sm mb-4">
+  <img src="assets/ady-avatar.svg" alt="Ady Avatar" class="w-12 h-12 rounded-full" />
+  <div class="flex-1">
+    <h2 class="text-base font-semibold text-resume-dark-gray">Hello and welcome! I'm Ady, your virtual assistant.</h2>
+    <p class="text-sm text-resume-medium-gray mt-1">
+      I'm here to guide you through Pradeep's professional journey. Feel free to ask me about skills, achievements, certifications, and more.
+    </p>
+    <div class="mt-2 flex items-start text-sm text-red-700">
+      <span class="mr-2 text-lg">⚠️</span>
+      <span><strong>Note:</strong> Ady is still learning — responses may be limited. For specific queries, please connect with Pradeep directly.</span>
     </div>
-  </div> 
-  
+  </div>
+</div>
 <!-- Chat Messages -->
 <div id="chat-messages"></div>
 
