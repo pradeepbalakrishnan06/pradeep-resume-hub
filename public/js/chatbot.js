@@ -1,4 +1,3 @@
-Chatbot.js working code: 
 async function fetchDataset() {
   // Fetch the dataset (make sure it's in the public folder or correct path)
   const response = await fetch("/dataset.json");  // Ensure the correct path
