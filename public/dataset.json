@@ -211,6 +211,126 @@
     {
       "question": "Does Pradeep have hiring or mentoring experience?",
       "answer": "Yes, Pradeep has been involved in hiring, mentoring, and performance reviews for senior engineers and support leads."
+    },
+    {
+      "question": "What is Pradeep’s experience with ITIL frameworks?",
+      "answer": "Pradeep is ITIL v4 certified and has applied ITIL practices extensively to streamline incident, problem, and change management processes across global support teams."
+    },
+    {
+      "question": "Has Pradeep led DevOps transformations?",
+      "answer": "Yes, Pradeep has driven DevOps culture adoption and CI/CD implementation, increasing automation and reducing deployment errors across multiple teams."
+    },
+    {
+      "question": "What is Pradeep's experience in product management?",
+      "answer": "Pradeep has experience in roadmap development, backlog prioritization, user research, cross-functional alignment, stakeholder engagement, metrics-driven optimization, and design thinking."
+    },
+    {
+      "question": "What is Pradeep's experience with automation?",
+      "answer": "Pradeep has experience in implementing automation, including BDD/TDD methodologies, to improve service reliability and operational efficiency."
+    },
+    {
+      "question": "What is Pradeep’s experience with risk management?",
+      "answer": "Pradeep has experience in risk management, ensuring service reliability and reducing operational risks."
+    },
+    {
+      "question": "Can you provide an example of Pradeep improving service reliability?",
+      "answer": "Pradeep aimed to achieve a 30% improvement in service reliability through automation and strategic process alignment."
+    },
+    {
+      "question": "How has Pradeep ensured smooth transitions in application support?",
+      "answer": "Pradeep has directed process re-engineering efforts and designed knowledge transfer plans to ensure efficient application support transitions."
+    },
+    {
+      "question": "What are Pradeep’s certifications?",
+      "answer": "Pradeep holds certifications in ITIL v4 Foundation, Microsoft Azure Fundamentals, and has completed courses in Cloud-Native AWS and Apache Kafka Fundamentals."
+    },
+    {
+      "question": "What kind of programs has Pradeep led?",
+      "answer": "Pradeep has led large-scale programs."
+    },
+    {
+      "question": "What is Pradeep's approach to problem management?",
+      "answer": "Pradeep contributes to strategic initiatives in problem management, aligning with corporate goals and improving service performance."
+    },
+    {
+      "question": "What type of stakeholders has Pradeep worked with?",
+      "answer": "Pradeep has collaborated with C-level executives, engineering heads, and product leaders across global banking environments to align technology outcomes with business goals."
+    },
+    {
+      "question": "What does Pradeep prioritize when launching new product features?",
+      "answer": "He emphasizes user feedback, business impact, and cross-functional readiness to ensure timely and effective product rollouts."
+    },
+    {
+      "question": "Has Pradeep worked on ITSM metrics tracking?",
+      "answer": "Yes, he has designed Tableau-based dashboards to track ITSM metrics, including incident trends, SLA breaches, and change success rates."
+    },
+    {
+      "question": "What is Pradeep’s familiarity with shift-left strategies?",
+      "answer": "Pradeep has implemented shift-left strategies by empowering L1 teams with automated triaging tools and knowledge base integration, reducing L2 escalations."
+    },
+    {
+      "question": "How has Pradeep handled underperforming teams?",
+      "answer": "He has used coaching, metrics-based feedback, and individualized improvement plans to turn around team performance and boost delivery outcomes."
+    },
+    {
+      "question": "Does Pradeep have experience working with agile tools?",
+      "answer": "Yes, Pradeep regularly works with Jira, Confluence, and Azure DevOps for sprint tracking, backlog grooming, and team collaboration."
+    },
+    {
+      "question": "Has Pradeep participated in release planning meetings?",
+      "answer": "Yes, he’s led release planning ceremonies, coordinating across QA, development, and support to manage timelines and deployment windows."
+    },
+    {
+      "question": "What makes Pradeep an effective Product Owner?",
+      "answer": "His ability to balance business priorities with technical feasibility, communicate clearly with stakeholders, and continuously refine the product backlog makes him effective."
+    },
+    {
+      "question": "How does Pradeep validate feature readiness before rollout?",
+      "answer": "He conducts UAT signoffs, performance testing reviews, and ensures post-deployment monitoring is in place before rollout."
+    },
+    {
+      "question": "Has Pradeep worked with regulatory or compliance teams?",
+      "answer": "Yes, Pradeep has engaged with internal audit and compliance functions to ensure IT change and access controls meet regulatory expectations."
+    },
+    {
+      "question": "What kind of operational reviews has Pradeep led?",
+      "answer": "He has led weekly service reviews and monthly operations health meetings to highlight risks, track KPIs, and define mitigation plans."
+    },
+    {
+      "question": "What is Pradeep’s approach to prioritizing incidents?",
+      "answer": "He classifies incidents using business impact and urgency, ensuring that high-priority issues receive immediate cross-functional attention."
+    },
+    {
+      "question": "Does Pradeep work well with development teams?",
+      "answer": "Yes, Pradeep works closely with dev teams to align releases with readiness, ensuring minimal disruption and faster rollback when needed."
+    },
+    {
+      "question": "How does Pradeep contribute to operational maturity?",
+      "answer": "He introduces capability maturity models, service scorecards, and automation enablers to increase predictability and reduce manual overhead."
+    },
+    {
+      "question": "What kind of cost-saving initiatives has Pradeep driven?",
+      "answer": "He has driven savings through offshore transitions, workflow automation, and process streamlining—achieving measurable efficiency gains."
+    },
+    {
+      "question": "What experience does Pradeep have with audit preparation?",
+      "answer": "Pradeep prepares service documentation, compliance evidence, and walkthroughs for internal and external audits, ensuring full traceability."
+    },
+    {
+      "question": "How does Pradeep approach communication during incidents?",
+      "answer": "He uses structured communication cadences—initial alert, RCA timeline, recovery ETA—and aligns updates with stakeholder expectations."
+    },
+    {
+      "question": "Has Pradeep worked in cloud migration programs?",
+      "answer": "Yes, he’s worked with Azure-based migration projects involving containerization, logging upgrades, and post-migration support readiness."
+    },
+    {
+      "question": "What soft skills does Pradeep bring to the table?",
+      "answer": "Pradeep brings strong communication, emotional intelligence, adaptability, and mentoring skills to lead high-performing teams."
+    },
+    {
+      "question": "Is Pradeep experienced in supporting front-office or business-critical apps?",
+      "answer": "Yes, he’s led production support for front-office banking systems, ensuring low-latency incident handling and direct business engagement."
     }
   ]
 }
