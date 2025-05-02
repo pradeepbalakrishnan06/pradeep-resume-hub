@@ -25,8 +25,14 @@ if (inputBox) {
 
 // Send message and respond
 async function sendMessage() {
-  const userInput = inputBox.value.trim();
+  const userInput = document.getElementById("user-input").value.trim();
   if (userInput === "") return;
+
+  // ✅ Hide welcome message AFTER user sends a message
+  const welcomeBox = document.querySelector('.chatbot-welcome');
+  if (welcomeBox) {
+    welcomeBox.style.display = 'none';
+  }
 
   const chatMessages = document.getElementById("chat-messages");
   const userMsg = document.createElement("div");
@@ -34,7 +40,7 @@ async function sendMessage() {
   userMsg.classList.add("user-message");
   chatMessages.appendChild(userMsg);
 
-  inputBox.value = "";
+  document.getElementById("user-input").value = "";
 
   try {
     const dataset = await fetchDataset();
@@ -90,10 +96,10 @@ A: I’m Ady, Pradeep’s virtual assistant. I can help you explore his career, 
 Only reply if confident it relates to Pradeep’s dataset or profile.
 `;
 
-      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",
+          "Authorization": "Bearer sk-...",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -105,10 +111,7 @@ Only reply if confident it relates to Pradeep’s dataset or profile.
         })
       });
 
-      if (!response.ok) {
-        throw new Error(`Error: ${response.statusText}`);
-      }
-
+      if (!response.ok) throw new Error(`Error: ${response.statusText}`);
       const data = await response.json();
       aiResponse = data.choices[0]?.message?.content || "Ady: Sorry, I couldn't generate a reply.";
     }
