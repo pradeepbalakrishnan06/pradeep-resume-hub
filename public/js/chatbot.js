@@ -1,48 +1,53 @@
+// Fetch dataset from JSON file
 async function fetchDataset() {
-  // Fetch the dataset (make sure it's in the public folder or correct path)
-  const response = await fetch("/dataset.json");  // Ensure the correct path
+  const response = await fetch("/dataset.json");
   const data = await response.json();
-  return data.questions;  // Returning the questions array
+  return data.questions;
 }
 
+// One-time hide welcome message handler
+const inputBox = document.getElementById("user-input");
+const welcomeBox = document.querySelector(".chatbot-welcome");
+
+function hideWelcomeMessage() {
+  if (welcomeBox) {
+    welcomeBox.style.display = "none";
+    inputBox.removeEventListener("focus", hideWelcomeMessage);
+    inputBox.removeEventListener("keydown", hideWelcomeMessage);
+  }
+}
+
+// Attach one-time event listeners
+if (inputBox) {
+  inputBox.addEventListener("focus", hideWelcomeMessage);
+  inputBox.addEventListener("keydown", hideWelcomeMessage);
+}
+
+// Send message and respond
 async function sendMessage() {
-  const userInput = document.getElementById("user-input").value.trim();
-  if (userInput === "") return; // Prevent empty sending
+  const userInput = inputBox.value.trim();
+  if (userInput === "") return;
 
-  // Make the default welcome message disappear
-  const inputBox = document.getElementById('user-input');
-  const welcomeBox = document.querySelector('.chatbot-welcome');
-  inputBox.addEventListener('focus', () => {
-    if (welcomeBox) {
-      welcomeBox.style.display = 'none';
-    }
-  });
-
-  // Display user's message
   const chatMessages = document.getElementById("chat-messages");
   const userMsg = document.createElement("div");
   userMsg.innerText = "You: " + userInput;
   userMsg.classList.add("user-message");
   chatMessages.appendChild(userMsg);
 
-  document.getElementById("user-input").value = "";
+  inputBox.value = "";
 
   try {
-    // Fetch the dataset (Q&A pairs) from dataset.json
     const dataset = await fetchDataset();
 
-    // Check if the user's input matches any question in the dataset
-    const matchingQA = dataset.find(item => 
+    const matchingQA = dataset.find(item =>
       userInput.toLowerCase().includes(item.question.toLowerCase())
     );
 
     let aiResponse = "I can only assist with questions related to Pradeep's professional background.";
 
-    // If a match is found, respond with the answer from the dataset
     if (matchingQA) {
       aiResponse = matchingQA.answer;
     } else {
-      // If no match, call OpenRouter AI API for a generic fallback response
       const systemPrompt = `
 You are Ady, a friendly and professional virtual assistant for Pradeep Balakrishnan.
 
@@ -85,23 +90,17 @@ A: I’m Ady, Pradeep’s virtual assistant. I can help you explore his career, 
 Only reply if confident it relates to Pradeep’s dataset or profile.
 `;
 
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",  // <-- paste your key
+          "Authorization": "Bearer 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",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
           model: "google/gemma-3-1b-it:free",
           messages: [
-            {
-              "role": "system",
-              "content": systemPrompt
-            },
-            {
-              "role": "user",
-              "content": userInput
-            }
+            { role: "system", content: systemPrompt },
+            { role: "user", content: userInput }
           ]
         })
       });
@@ -114,12 +113,11 @@ Only reply if confident it relates to Pradeep’s dataset or profile.
       aiResponse = data.choices[0]?.message?.content || "Ady: Sorry, I couldn't generate a reply.";
     }
 
-    // Display AI's response
     const aiMsg = document.createElement("div");
     aiMsg.innerText = "Ady: " + aiResponse;
     aiMsg.classList.add("ai-message");
     chatMessages.appendChild(aiMsg);
-    chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+    chatMessages.scrollTop = chatMessages.scrollHeight;
   } catch (error) {
     const aiMsg = document.createElement("div");
     aiMsg.innerText = "Ady: Oops, something went wrong.";
@@ -129,7 +127,7 @@ Only reply if confident it relates to Pradeep’s dataset or profile.
   }
 }
 
-// Toggle chatbot when avatar is clicked
+// Toggle chatbot window
 document.getElementById("ady-avatar").addEventListener("click", () => {
   const chatbotContainer = document.getElementById("chatbot-container");
   chatbotContainer.style.display =
@@ -137,13 +135,12 @@ document.getElementById("ady-avatar").addEventListener("click", () => {
       ? "flex"
       : "none";
 
-  // Focus input when opened
   if (chatbotContainer.style.display === "flex") {
-    setTimeout(() => document.getElementById("user-input").focus(), 100);
+    setTimeout(() => inputBox.focus(), 100);
   }
 });
 
-// Close chatbot when X is clicked
+// Minimize/close chatbot
 document.getElementById("chatbot-close").addEventListener("click", () => {
   document.getElementById("chatbot-container").style.display = "none";
 });
