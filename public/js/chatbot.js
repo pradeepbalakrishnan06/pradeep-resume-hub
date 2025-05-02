@@ -5,46 +5,29 @@ async function fetchDataset() {
   return data.questions;
 }
 
-// One-time hide welcome message handler
-const inputBox = document.getElementById("user-input");
-const welcomeBox = document.querySelector(".chatbot-welcome");
-
-function hideWelcomeMessage() {
-  if (welcomeBox) {
-    welcomeBox.style.display = "none";
-    inputBox.removeEventListener("focus", hideWelcomeMessage);
-    inputBox.removeEventListener("keydown", hideWelcomeMessage);
-  }
-}
-
-// Attach one-time event listeners
-if (inputBox) {
-  inputBox.addEventListener("focus", hideWelcomeMessage);
-  inputBox.addEventListener("keydown", hideWelcomeMessage);
-}
-
 // Send message and respond
 async function sendMessage() {
-  const userInput = document.getElementById("user-input").value.trim();
+  const userInputEl = document.getElementById("user-input");
+  const chatMessages = document.getElementById("chat-messages");
+  const welcomeBox = document.querySelector(".chatbot-welcome");
+
+  const userInput = userInputEl.value.trim();
   if (userInput === "") return;
 
-  // ✅ Hide welcome message AFTER user sends a message
-  const welcomeBox = document.querySelector('.chatbot-welcome');
-  if (welcomeBox) {
-    welcomeBox.style.display = 'none';
+  // ✅ Hide welcome message ONLY when actual message is submitted
+  if (welcomeBox && welcomeBox.style.display !== "none") {
+    welcomeBox.style.display = "none";
   }
 
-  const chatMessages = document.getElementById("chat-messages");
+  // Show user's message
   const userMsg = document.createElement("div");
   userMsg.innerText = "You: " + userInput;
   userMsg.classList.add("user-message");
   chatMessages.appendChild(userMsg);
-
-  document.getElementById("user-input").value = "";
+  userInputEl.value = "";
 
   try {
     const dataset = await fetchDataset();
-
     const matchingQA = dataset.find(item =>
       userInput.toLowerCase().includes(item.question.toLowerCase())
     );
@@ -96,10 +79,10 @@ A: I’m Ady, Pradeep’s virtual assistant. I can help you explore his career, 
 Only reply if confident it relates to Pradeep’s dataset or profile.
 `;
 
-     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer sk-...",
+          "Authorization": "Bearer sk-...",  // Replace with your actual key
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -139,7 +122,7 @@ document.getElementById("ady-avatar").addEventListener("click", () => {
       : "none";
 
   if (chatbotContainer.style.display === "flex") {
-    setTimeout(() => inputBox.focus(), 100);
+    setTimeout(() => document.getElementById("user-input").focus(), 100);
   }
 });
 
