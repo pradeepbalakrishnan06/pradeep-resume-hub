@@ -331,6 +331,86 @@
     {
       "question": "Is Pradeep experienced in supporting front-office or business-critical apps?",
       "answer": "Yes, he’s led production support for front-office banking systems, ensuring low-latency incident handling and direct business engagement."
+    },
+    {
+      "question": "How does Pradeep promote continuous improvement within teams?",
+      "answer": "Pradeep encourages feedback loops, retrospectives, and performance metrics to embed a continuous improvement culture across teams."
+    },
+    {
+      "question": "What is Pradeep's experience with production stability during release cycles?",
+      "answer": "Pradeep has overseen release calendar governance and implemented rollback strategies to maintain production stability during major deployments."
+    },
+    {
+      "question": "Has Pradeep worked in globally distributed teams?",
+      "answer": "Yes, Pradeep has led globally distributed teams spanning India, the US, Singapore, and Poland, ensuring timezone-aligned delivery."
+    },
+    {
+      "question": "How does Pradeep align IT goals with business objectives?",
+      "answer": "Pradeep translates business KPIs into IT service goals and regularly collaborates with business units to ensure alignment and traceability."
+    },
+    {
+      "question": "What’s Pradeep’s approach to onboarding new team members?",
+      "answer": "He sets up structured onboarding plans, mentorship pairings, and early engagement through playbooks and KT sessions."
+    },
+    {
+      "question": "How has Pradeep supported service observability?",
+      "answer": "Pradeep has worked with engineering leads to implement observability stacks with monitoring, alerting, and telemetry pipelines."
+    },
+    {
+      "question": "Does Pradeep have experience managing budget or vendor contracts?",
+      "answer": "Yes, Pradeep has managed vendor transitions, negotiated support SLAs, and optimized tool spend to reduce OPEX."
+    },
+    {
+      "question": "What’s Pradeep’s philosophy on team leadership?",
+      "answer": "He believes in servant leadership—empowering others, removing blockers, and creating a psychologically safe space for innovation."
+    },
+    {
+      "question": "How does Pradeep handle feedback from senior stakeholders?",
+      "answer": "Pradeep actively incorporates feedback from MDs and senior sponsors to refine product direction and delivery cadence."
+    },
+    {
+      "question": "Has Pradeep worked on employee engagement initiatives?",
+      "answer": "Yes, Pradeep introduced team pulse checks and recognition programs that helped boost engagement and team cohesion."
+    },
+    {
+      "question": "How does Pradeep ensure high availability for critical systems?",
+      "answer": "He implements redundancy strategies, A/B switchovers, and proactive alerting for critical-tier applications."
+    },
+    {
+      "question": "What’s Pradeep’s approach to service decommissioning?",
+      "answer": "Pradeep ensures thorough impact analysis, stakeholder sign-offs, and documentation before retiring legacy services."
+    },
+    {
+      "question": "Does Pradeep conduct regular operational reviews?",
+      "answer": "Yes, he chairs monthly service reviews focusing on stability trends, aging incidents, capacity forecasts, and SLA breaches."
+    },
+    {
+      "question": "What’s Pradeep’s involvement in regulatory reporting?",
+      "answer": "Pradeep ensures data accuracy and timely submission of operational KPIs for IT risk and compliance reporting."
+    },
+    {
+      "question": "Has Pradeep delivered cross-border technology rollouts?",
+      "answer": "Yes, he led phased rollouts of monitoring frameworks and ITSM automation across APAC, EMEA, and AMER."
+    },
+    {
+      "question": "How does Pradeep manage project dependencies across teams?",
+      "answer": "He uses dependency mapping and RAID logs to proactively identify blockers and align sprint capacity accordingly."
+    },
+    {
+      "question": "What is Pradeep's take on leadership in high-pressure situations?",
+      "answer": "He maintains calm under pressure, prioritizes resolution steps, and communicates clearly to avoid panic escalation."
+    },
+    {
+      "question": "What is Pradeep’s role in post-incident reviews?",
+      "answer": "Pradeep conducts structured PIRs focusing on root cause, corrective actions, and ownership accountability."
+    },
+    {
+      "question": "How does Pradeep maintain documentation quality?",
+      "answer": "He enforces version control, review cycles, and centralized repositories like SharePoint for easy team access."
+    },
+    {
+      "question": "What does Pradeep consider as indicators of operational success?",
+      "answer": "Improved MTTR, reduced escalations, successful audits, and stakeholder satisfaction are Pradeep’s key success indicators."
     }
   ]
 }
