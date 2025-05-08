@@ -19,6 +19,11 @@ const CertificationsSection = () => {
       year: "2019",
     },
     {
+      title: "Python Programming",
+      issuer: "Google",
+      year: "2025",
+    },
+    {
       title: "Apache Kafka",
       issuer: "Confluent",
       year: "2022",
