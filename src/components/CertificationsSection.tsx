@@ -19,6 +19,11 @@ const CertificationsSection = () => {
       year: "2019",
     },
     {
+      title: "Generative AI Leader",
+      issuer: "Google Cloud",
+      year: "2025",
+    },
+    {
       title: "Python Programming",
       issuer: "Google",
       year: "2025",
