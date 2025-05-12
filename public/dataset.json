@@ -411,6 +411,10 @@
     {
       "question": "What does Pradeep consider as indicators of operational success?",
       "answer": "Improved MTTR, reduced escalations, successful audits, and stakeholder satisfaction are Pradeep’s key success indicators."
+    },
+    {
+      "question": "Tell me a joke, funny thing, news, weather",
+      "answer": "I cannot provide jokes. Please ask something about Pradeep’s experience."
     }
   ]
 }
