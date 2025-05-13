@@ -197,10 +197,10 @@ const SkillsSection = () => {
   };
 
   return (
-    <section id="skills" className="py-16 md:py-24 bg-gradient-to-b from-white to-resume-blue/5">
+    <section id="skills" className="py-16 md:py-24 bg-gradient-to-r from-resume-blue/10 via-resume-blue/20 to-resume-blue/10">
       <div className="container mx-auto px-4">
         <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-12 opacity-0 animate-fade-in">
-          Skills & Insights
+            Skills & Insights
         </h2>
         
         <div className="relative">
