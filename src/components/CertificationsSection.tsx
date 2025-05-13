@@ -59,7 +59,7 @@ const CertificationsSection = () => {
   return (
     <section id="certifications" className="py-16 md:py-24 bg-resume-soft-gray/50">
       <div className="container mx-auto px-4">
-        <h2 className="section-title opacity-0 animate-fade-in">Certifications & Education</h2>
+        <h2 className="section-title text-3xl md:text-4xl font-bold text-resume-dark-gray mb-8 opacity-0 animate-fade-in">Certifications & Education</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Certifications */}
