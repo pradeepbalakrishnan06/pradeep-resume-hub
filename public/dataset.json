@@ -1,12 +1,20 @@
 {
   "questions": [
     {
+      "question": "Hi Hello Howdy Ola good morning good evening",
+      "answer": "Hi there! How can I assist you with Pradeep's professional background today?"
+    },
+    {
       "question": "What are Pradeep's core strengths?",
       "answer": "Pradeep is skilled in operational transformation, DevOps leadership, process re-engineering, and data-driven decision-making."
     },
     {
       "question": "Tell me more about Pradeep in 2 lines?",
       "answer": "Pradeep is a transformation and operations leader with 15+ years in global banking and technology. His strengths lie in DevOps, service reliability, data-driven decision-making, and stakeholder collaboration."
+    },
+    {
+      "question": "What are Pradeep's key skills?",
+      "answer": "Pradeep is skilled in product management, service delivery, DevOps, and operational transformation in the financial services sector."
     },
     {
       "question": "Where has Pradeep worked?",
