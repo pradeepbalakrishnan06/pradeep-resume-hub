@@ -72,8 +72,12 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex flex-col justify-center items-center px-4 py-20 bg-gradient-to-b from-resume-blue/10 to-white">
       <div className="text-center max-w-4xl mx-auto opacity-0 animate-fade-in">
-        <div className="w-32 h-32 rounded-full bg-resume-blue/20 mx-auto mb-8 flex items-center justify-center text-2xl text-resume-dark-gray">
-          PB
+        <div className="w-32 h-32 rounded-full bg-resume-blue/20 mx-auto mb-8 flex items-center justify-center">
+            <img 
+              src="/favicon.ico" 
+              alt="Pradeep's Logo" 
+              className="w-16 h-16" 
+            />
         </div>
         <h1 className="text-3xl md:text-5xl font-bold text-resume-dark-gray mb-4 leading-tight">
           Driving Strategic Change and Product Innovation in Global Operations
