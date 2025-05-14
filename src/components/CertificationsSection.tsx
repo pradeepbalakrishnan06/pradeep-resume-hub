@@ -29,6 +29,11 @@ const CertificationsSection = () => {
       year: "2025",
     },
     {
+      title: "Enterprise Product Management Fundamentals",
+      issuer: "Microsoft",
+      year: "2025",
+    },
+    {
       title: "Apache Kafka",
       issuer: "Confluent",
       year: "2022",
