@@ -44,12 +44,12 @@ const CertificationsSection = () => {
     {
       degree: "MBA",
       institution: "ICFAI University",
-      year: "2012",
+      year: "2008",
     },
     {
       degree: "BCA",
       institution: "Dr. BR Ambedkar University",
-      year: "2008",
+      year: "2006",
     },
   ];
 
