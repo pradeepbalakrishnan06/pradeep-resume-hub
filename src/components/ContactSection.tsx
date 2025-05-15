@@ -6,7 +6,7 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-16 md:py-24 bg-resume-dark-gray text-white">
       <div className="container mx-auto px-4 text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 opacity-0 animate-fade-in">Let's Connect</h2>
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 opacity-0 animate-fade-in">Get in Touch</h2>
         <p className="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-0 animate-fade-in animation-delay-1">
           Let's connect to explore how I can help drive your product, data, or transformation vision.
         </p>
@@ -41,6 +41,9 @@ const ContactSection = () => {
         </div>
         <div className="text-sm text-white/60 opacity-0 animate-fade-in animation-delay-3">
           &copy; {new Date().getFullYear()} Pradeep Balakrishnan. All rights reserved.
+          <div className="mt-2">
+            Last Updated: May'2025
+          </div>
         </div>
       </div>
     </section>
