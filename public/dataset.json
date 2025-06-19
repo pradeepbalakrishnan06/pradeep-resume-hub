@@ -423,6 +423,10 @@
     {
       "question": "Tell me a joke, funny thing, news, weather",
       "answer": "That’s outside the information I can provide. However, I can share insights about Pradeep’s experience."
+    },
+    {
+      "question": "What knowledge, skills, and experience does Pradeep bring?",
+      "answer": "Pradeep brings over 15 years of experience in global banking and technology services with deep expertise in operations, product strategy, and transformation. He is skilled in ITIL, SIAM, DevOps, Agile practices, and has hands-on experience with tools like ServiceNow, Jira, Tableau, and SharePoint. He has led cross-functional teams, driven automation, and managed service delivery across India, the U.S., and Singapore."
     }
   ]
 }
