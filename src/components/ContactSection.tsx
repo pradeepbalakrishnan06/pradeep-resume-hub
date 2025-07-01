@@ -42,7 +42,7 @@ const ContactSection = () => {
         <div className="text-sm text-white/60 opacity-0 animate-fade-in animation-delay-3">
           &copy; {new Date().getFullYear()} Pradeep Balakrishnan. All rights reserved.
           <div className="mt-2">
-            Last Updated: June'2025
+            Last Updated: July'2025
           </div>
         </div>
       </div>
