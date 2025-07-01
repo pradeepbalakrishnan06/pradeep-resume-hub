@@ -20,7 +20,7 @@ const certificates = [
   { issuer: "LinkedIn", name: "Using Questions to Foster Curiosity", year: 2021, category: "AI & Data" },
 
   // ITSM & Ops
-  { issuer: "Automation Anywhere", name: "Essentials Automation Certification", year: 2025, category: "ITSM & Ops" },
+  { issuer: "Automation Anywhere", name: "Essentials Automation Professional", year: 2025, category: "ITSM & Ops" },
   { issuer: "BigPanda", name: "AIOps Foundations", year: 2024, category: "ITSM & Ops" },
   { issuer: "Gremlin", name: "Gremlin Enterprise Chaos Engineering Certification (GECEC)", year: 2024, category: "ITSM & Ops" },
   { issuer: "Moogsoft", name: "Moogsoft Enterprise Operator Training", year: 2021, category: "ITSM & Ops" },
