@@ -427,6 +427,10 @@
     {
       "question": "What knowledge, skills, and experience does Pradeep bring?",
       "answer": "Pradeep brings over 15 years of experience in global banking and technology services with deep expertise in operations, product strategy, and transformation. He is skilled in ITIL, SIAM, DevOps, Agile practices, and has hands-on experience with tools like ServiceNow, Jira, Tableau, and SharePoint. He has led cross-functional teams, driven automation, and managed service delivery across India, the U.S., and Singapore."
+    },
+    {
+      "question": "Is Pradeep a developer?",
+      "answer": "Pradeep is not primarily a developer. His core expertise lies in product ownership, site reliability engineering (SRE), DevOps strategy, and IT service management. While he collaborates closely with engineering teams and understands technical workflows, his roles focus more on leadership, transformation, and service delivery than on hands-on software development."
     }
   ]
 }
