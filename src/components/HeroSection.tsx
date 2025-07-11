@@ -89,7 +89,7 @@ const HeroSection = () => {
         <div className="flex justify-center flex-wrap gap-8 mb-10">
           <AnimatedCounter end={15} label="Years Experience" />
           <AnimatedCounter end={3} label="Countries Worked" />
-          <AnimatedCounter end={20} label="Certifications" />
+          <AnimatedCounter end={30} label="Certifications" />
         </div>
         
         <div className="flex justify-center gap-4 mb-16">
