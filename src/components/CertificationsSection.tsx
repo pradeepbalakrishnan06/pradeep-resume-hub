@@ -5,14 +5,13 @@ const categories = [
   "ITSM & Ops",
   "Cloud & DevOps",
   "AI & Data",
-  "Leadership",
+  "PM & Leadership",
   "Security",
 ];
 
 const certificates = [
   // AI & Data
   { issuer: "Google", name: "Generative AI Leader", year: 2025, category: "AI & Data" },
-  { issuer: "Microsoft", name: "Enterprise Product Management Fundamentals", year: 2025, category: "AI & Data" },
   { issuer: "Microsoft", name: "Preparing Data for Analysis with Excel", year: 2025, category: "AI & Data" },
   { issuer: "NASBA", name: "Tableau Essential Training", year: 2023, category: "AI & Data" },
   { issuer: "Google", name: "Introduction to Generative AI", year: 2024, category: "AI & Data" },
@@ -21,23 +20,30 @@ const certificates = [
 
   // ITSM & Ops
   { issuer: "Automation Anywhere", name: "Essentials Automation Professional", year: 2025, category: "ITSM & Ops" },
+  { issuer: "LinkedIn", name: "Six Sigma Foundations", year: 2025, category: "ITSM & Ops" },
   { issuer: "BigPanda", name: "AIOps Foundations", year: 2024, category: "ITSM & Ops" },
   { issuer: "Gremlin", name: "Gremlin Enterprise Chaos Engineering Certification (GECEC)", year: 2024, category: "ITSM & Ops" },
   { issuer: "Moogsoft", name: "Moogsoft Enterprise Operator Training", year: 2021, category: "ITSM & Ops" },
   { issuer: "AXELOS", name: "ITIL® V4 Foundation Certificate in IT Service Management", year: 2020, category: "ITSM & Ops" },
 
-  // Leadership
-  { issuer: "LinkedIn", name: "Develop Critical Thinking & Decision-Making", year: 2021, category: "Leadership" },
-  { issuer: "Coursera", name: "Leadership in 21st Century Organizations", year: 2019, category: "Leadership" },
-  { issuer: "LinkedIn", name: "Critical Thinking", year: 2019, category: "Leadership" },
-  { issuer: "LinkedIn", name: "Strategic Thinking", year: 2019, category: "Leadership" },
+  // PM & Leadership
+  { issuer: "Asana", name: "Asana Ambassador & Foundation", year: 2025, category: "PM & Leadership" },
+  { issuer: "Microsoft", name: "Enterprise Product Management Fundamentals", year: 2025, category: "PM & Leadership" },
+  { issuer: "LinkedIn", name: "Develop Critical Thinking & Decision-Making", year: 2021, category: "PM & Leadership" },
+  { issuer: "LinkedIn", name: "SharePoint for Project Management", year: 2019, category: "PM & Leadership" },
+  { issuer: "Coursera", name: "Leadership in 21st Century Organizations", year: 2019, category: "PM & Leadership" },
+  { issuer: "LinkedIn", name: "Critical Thinking", year: 2019, category: "PM & Leadership" },
+  { issuer: "LinkedIn", name: "Strategic Thinking", year: 2019, category: "PM & Leadership" },
+  { issuer: "LinkedIn", name: "Becoming a Thought Leader", year: 2019, category: "PM & Leadership" },
 
   // Cloud & DevOps
+  { issuer: "MongoDB", name: "MongoDB for SQL Experts", year: 2025, category: "Cloud & DevOps" },
+  { issuer: "Confluent", name: "Apache Kafka Administration", year: 2021, category: "Cloud & DevOps" },
   { issuer: "LinkedIn", name: "Microsoft Azure: Architecting Infrastructure", year: 2019, category: "Cloud & DevOps" },
   { issuer: "LinkedIn", name: "AWS Solutions Architect Overview", year: 2019, category: "Cloud & DevOps" },
   { issuer: "LinkedIn", name: "DevOps Foundations: DevSecOps", year: 2019, category: "Cloud & DevOps" },
   { issuer: "LinkedIn", name: "Learning Azure DevOps", year: 2019, category: "Cloud & DevOps" },
-  { issuer: "Confluent", name: "Apache Kafka Administration", year: 2021, category: "Cloud & DevOps" },
+  
 
   // Security
   { issuer: "Vanderbilt University", name: "Generative AI Cybersecurity & Privacy for Leaders", year: 2025, category: "Security" },
