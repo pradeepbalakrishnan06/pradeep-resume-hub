@@ -27,6 +27,7 @@ const certificates = [
   { issuer: "AXELOS", name: "ITIL® V4 Foundation Certificate in IT Service Management", year: 2020, category: "ITSM & Ops" },
 
   // PM & Leadership
+  { issuer: "Google", name: "Agile Project Management", year: 2025, category: "PM & Leadership" },
   { issuer: "Asana", name: "Asana Ambassador & Foundation", year: 2025, category: "PM & Leadership" },
   { issuer: "Microsoft", name: "Enterprise Product Management Fundamentals", year: 2025, category: "PM & Leadership" },
   { issuer: "LinkedIn", name: "Develop Critical Thinking & Decision-Making", year: 2021, category: "PM & Leadership" },
