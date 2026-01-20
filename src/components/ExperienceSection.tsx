@@ -1,17 +1,23 @@
 
 const ExperienceSection = () => {
   const experiences = [
+   {
+      company: "Freelance / Consultant",
+      role: "Independent ITSM, Transformation & Data Visualization Consultant",
+      duration: "June 2023 – Present",
+      location: "Bengaluru, Karnataka, India",
+    },
     {
       company: "Credit Suisse",
-      role: "VP, India Regional Lead - SRE, DevOps",
+      role: "VP, India Regional Ops Lead - Product & Platform Manager (New Tech Adoption, DevOps & SRE) ",
       duration: "Oct 2021 – Jun 2023",
-      location: "Pune, India",
+      location: "Pune, Maharashtra, India",
     },
     {
       company: "UBS",
       role: "Associate Director, Tech Service & PM",
       duration: "Oct 2018 – Sep 2021",
-      location: "Pune, India",
+      location: "Pune, Maharashtra, India",
     },
     {
       company: "HCL America Inc.",
@@ -23,7 +29,7 @@ const ExperienceSection = () => {
       company: "HCL Technologies Ltd.",
       role: "Deputy/Asst. Manager, Sr. Executive",
       duration: "May 2008 – Dec 2013",
-      location: "Bangalore, India & Singapore",
+      location: "Bangalore, Karnataka, India & Singapore",
     },
   ];
 
