@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Briefcase, Building2, Calendar } from "lucide-react";
+import { Briefcase } from "lucide-react";
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 
 const experiences = [
   { id: 1, year: 2008, company: "HCL Technologies Ltd.", role: "Assistant Manager / Sr. Executive (Operations & Service Delivery)", duration: "2008 – 2009", location: "Bengaluru, Karnataka, India" },
@@ -10,25 +12,47 @@ const experiences = [
   { id: 6, year: 2023, company: "Freelance / Consultant", role: "Independent ITSM, Transformation & Data Visualization Consultant", duration: "2023 – Present", location: "Bengaluru, Karnataka, India" },
 ];
 
-export default function ExperienceGraphTable() {
-  const graphExperiences = [...experiences];
-  const sortedExperiences = experiences
-    .filter(exp => exp.company !== "Freelance / Consultant")
-    .sort((a, b) => b.year - a.year);
-  const finalExperiences = [...sortedExperiences, experiences.find(exp => exp.company === "Freelance / Consultant")];
+// Graph order: start from 2008
+const graphExperiences = experiences.sort((a, b) => a.year - b.year);
 
+// Table order: CS >> UBS >> HCL Americas >> HCL Singapore >> HCL Technologies >> Freelance
+const tableExperiences = [
+  experiences.find(exp => exp.company === "Credit Suisse / UBS"),
+  experiences.find(exp => exp.company === "UBS"),
+  experiences.find(exp => exp.company === "HCL America Inc."),
+  experiences.find(exp => exp.company === "HCL Singapore Pte. Ltd."),
+  experiences.find(exp => exp.company === "HCL Technologies Ltd."),
+  experiences.find(exp => exp.company === "Freelance / Consultant"),
+];
+
+const ExperienceSection = () => {
+  const isMobile = useIsMobile();
   const [activeIds, setActiveIds] = useState<number[]>([]);
 
   const handleSelect = (id: number, index: number) => {
-    // Highlight 2008 bullet -> HCL Technologies Ltd., 2009 bullet -> HCL Singapore
-    if (index === 0) {
-      setActiveIds([1]);
-    } else if (index === 1) {
-      setActiveIds([2]);
-    } else {
-      setActiveIds([id]);
-    }
+    // Highlight row when bullet clicked (2008 -> HCL Tech, 2009 -> HCL Singapore)
+    if (index === 0) setActiveIds([1]);
+    else if (index === 1) setActiveIds([2]);
+    else setActiveIds([id]);
   };
+
+  const renderMobileTable = () => (
+    <div className="space-y-4">
+      {tableExperiences.map((exp) => (
+        <Collapsible key={exp.id} className="border border-resume-soft-gray rounded-md overflow-hidden">
+          <CollapsibleTrigger className="flex justify-between items-center w-full p-3 bg-resume-soft-gray/50 text-resume-dark-gray font-medium text-left">
+            <span className="pr-4">{exp.company}</span>
+            <span className="text-sm shrink-0">Details →</span>
+          </CollapsibleTrigger>
+          <CollapsibleContent className="p-3 space-y-2 border-t border-resume-soft-gray/50">
+            <div className="font-semibold text-resume-dark-gray">Role: {exp.role}</div>
+            <div className="text-resume-dark-gray">Tenure: {exp.duration}</div>
+            <div className="text-resume-dark-gray">Location: {exp.location}</div>
+          </CollapsibleContent>
+        </Collapsible>
+      ))}
+    </div>
+  );
 
   return (
     <section id="experience" className="py-16 bg-gradient-to-b from-white to-resume-soft-gray/60">
@@ -38,16 +62,13 @@ export default function ExperienceGraphTable() {
         {/* HORIZONTAL TIMELINE GRAPH */}
         <div className="relative mb-8 overflow-x-auto">
           <div className="absolute top-8 left-0 right-0 h-[2px] bg-gradient-to-r from-gray-200 via-gray-300 to-gray-200" />
-
           <div className="flex justify-between py-6 w-full">
             {graphExperiences.map((exp, index) => (
               <div key={exp.id} className="flex flex-col items-center min-w-[80px]">
                 <div
                   onMouseEnter={() => handleSelect(exp.id, index)}
                   onClick={() => handleSelect(exp.id, index)}
-                  className={`w-6 h-6 rounded-full cursor-pointer z-10 bg-[#9C2007] shadow-lg ring-4 transition-all ${
-                    activeIds.includes(exp.id) ? "ring-[#9C2007]/30" : "ring-white"
-                  }`}
+                  className={`w-6 h-6 rounded-full cursor-pointer z-10 bg-[#9C2007] shadow-lg ring-4 transition-all ${activeIds.includes(exp.id) ? "ring-[#9C2007]/30" : "ring-white"}`}
                 />
                 <div className="mt-3 text-sm font-semibold text-gray-500 text-center">{exp.year}</div>
               </div>
@@ -62,34 +83,30 @@ export default function ExperienceGraphTable() {
           </p>
         </div>
 
-        {/* TABLE (Freelance last) */}
-        <div className="bg-white rounded-2xl shadow-md overflow-hidden">
-          <div className="grid grid-cols-4 gap-4 px-5 py-4 text-xs font-semibold uppercase tracking-wide text-gray-500 border-b bg-gray-50">
-            <div>Company</div>
-            <div>Role</div>
-            <div>Tenure</div>
-            <div>Location</div>
-          </div>
-
-          {finalExperiences.map((exp) => (
-            <div
-              key={exp.id}
-              onMouseEnter={() => setActiveIds([exp.id])}
-              onClick={() => setActiveIds([exp.id])}
-              className={`grid grid-cols-4 gap-4 px-5 py-5 text-sm cursor-pointer transition-all ${
-                activeIds.includes(exp.id) ? "bg-[#9C2007]/30 border-l-4 border-[#9C2007]" : "hover:bg-gray-50"
-              }`}
-            >
-              <div className="font-semibold flex items-center gap-2">
-                <Briefcase size={16} className="text-white" /> {exp.company}
-              </div>
-              <div className="text-gray-700">{exp.role}</div>
-              <div className="text-gray-500">{exp.duration}</div>
-              <div className="text-gray-500">{exp.location}</div>
+        {/* TABLE (collapsible on mobile) */}
+        {isMobile ? renderMobileTable() : (
+          <div className="bg-white rounded-2xl shadow-md overflow-hidden">
+            <div className="grid grid-cols-4 gap-4 px-5 py-4 text-xs font-semibold uppercase tracking-wide text-gray-500 border-b bg-gray-50">
+              <div>Company</div>
+              <div>Role</div>
+              <div>Tenure</div>
+              <div>Location</div>
             </div>
-          ))}
-        </div>
+            {tableExperiences.map((exp) => (
+              <div key={exp.id} onMouseEnter={() => setActiveIds([exp.id])} onClick={() => setActiveIds([exp.id])} className={`grid grid-cols-4 gap-4 px-5 py-5 text-sm cursor-pointer transition-all ${activeIds.includes(exp.id) ? "bg-[#9C2007]/30 border-l-4 border-[#9C2007]" : "hover:bg-gray-50"}`}>
+                <div className="font-semibold flex items-center gap-2">
+                  <Briefcase size={16} className="text-white" /> {exp.company}
+                </div>
+                <div className="text-gray-700">{exp.role}</div>
+                <div className="text-gray-500">{exp.duration}</div>
+                <div className="text-gray-500">{exp.location}</div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
-}
+};
+
+export default ExperienceSection;
