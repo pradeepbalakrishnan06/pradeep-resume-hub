@@ -11,6 +11,7 @@ const categories = [
 
 const certificates = [
   // AI & Data
+  { issuer: "AWS", name: "AI Fundamentals and the Cloud", year: 2026, category: "AI & Data", link: "https://coursera.org/share/c65f7d603b88e5a8390adbe955b4b49d" },
   { issuer: "Coursera", name: "Generative AI For Leader (VANDERBILT UNIVERSITY)", year: 2026, category: "AI & Data", link: "https://coursera.org/share/341b09d6a7f34bb920996eca92932040" },
   { issuer: "Google", name: "Generative AI Leader", year: 2025, category: "AI & Data", link: "https://www.cloudskillsboost.google/paths/1951" },
   { issuer: "Microsoft", name: "Preparing Data for Analysis with Excel", year: 2025, category: "AI & Data", link: "https://www.coursera.org/account/accomplishments/verify/L7WVPP7DISKG" },
