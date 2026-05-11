@@ -1,73 +1,140 @@
-# Welcome to your Lovable project
+<div align="center">
 
-## Project info
+# ✦ Pradeep Balakrishnan — Portfolio & Resume Hub
 
-**URL**: https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6
+**A personal portfolio that goes beyond a résumé.**  
+Built with modern web tech, shaped by AI-assisted development, and powered by an interactive chat agent that knows my story.
 
-## How can I edit this code?
+[![Live Site](https://img.shields.io/badge/🌐_Live_Site-Visit_Portfolio-6366f1?style=for-the-badge)](https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6)
+[![Built with React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 
-There are several ways of editing your application.
+</div>
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6) and start prompting.
+## 👋 What This Is
 
-Changes made via Lovable will be committed automatically to this repo.
+This isn't a template — it's a living, breathing digital identity.
 
-**Use your preferred IDE**
+What started as a Lovable-generated scaffold was completely reimagined and rebuilt to reflect my own design sensibilities, career narrative, and personality. Every section, interaction, and animation has been deliberately crafted — with a healthy mix of AI-assisted development and hands-on local coding.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+The highlight? **Meet Ady** — an AI-powered chat agent embedded in the portfolio that can answer questions about my professional journey, background, skills, and experience. Think of Ady as a knowledgeable proxy for me, available 24/7 to anyone who visits.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## ✨ Features
+
+| Feature | Description |
+|---|---|
+| 🤖 **Ady — AI Chat Agent** | Conversational agent trained on my professional background, answering recruiter & collaborator questions in real time |
+| 🎨 **Custom Design System** | Fully bespoke UI — not a template. Colors, typography, and layout tailored to my personal style |
+| ⚡ **Blazing Fast** | Vite-powered build with optimized asset delivery and near-instant page loads |
+| 📱 **Fully Responsive** | Seamless experience across mobile, tablet, and desktop |
+| 🧩 **Component-Driven** | Built with shadcn/ui primitives, extended with custom components |
+| 🌗 **Polished Interactions** | Smooth transitions and micro-interactions throughout |
+
+---
+
+## 🤖 Ady — My AI Portfolio Agent
+
+Ady is an embedded conversational agent that covers:
+
+- 💼 My professional journey and work history
+- 🛠️ Skills, tools, and technologies I work with
+- 🎓 Education and certifications
+- 📌 Projects I've built and contributed to
+- 🤝 How to get in touch or collaborate
+
+Ady is designed to give recruiters, collaborators, and curious visitors a richer, more personal alternative to reading a static résumé.
+
+---
+
+## 🛠️ Tech Stack
+
+```
+React 18 + TypeScript     →  Core framework & type safety
+Vite                      →  Lightning-fast build tooling
+Tailwind CSS              →  Utility-first styling
+shadcn/ui                 →  Accessible, composable UI components
+Lovable (origin)          →  AI-assisted scaffolding & rapid iteration
+```
+
+---
+
+## 🚀 Running Locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 1. Clone the repo
+git clone https://github.com/pradeepbalakrishnan06/pradeep-resume-hub.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. Move into the project
+cd pradeep-resume-hub
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. Start the dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:8080](http://localhost:8080) — you're in.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 🏗️ Project Structure
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/         # Reusable UI components
+│   ├── ui/             # shadcn/ui base components
+│   └── ...             # Custom portfolio sections
+├── pages/              # Route-level page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utilities and helpers
+└── assets/             # Images, fonts, static files
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## ✏️ Ways to Edit & Contribute
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+**Local development** (recommended for significant changes):
+```sh
+git clone → npm install → npm run dev → make changes → push
+```
 
-## How can I deploy this project?
+**Quick edits via GitHub:** Navigate to any file → click the pencil icon → commit directly.
 
-Simply open [Lovable](https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6) and click on Share -> Publish.
+**Via Lovable:** Open the [Lovable Project](https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6) and prompt your changes — they sync automatically to this repo.
 
-## Can I connect a custom domain to my Lovable project?
+**Via GitHub Codespaces:** Hit the green `Code` button → `Codespaces` → `New codespace` for a full cloud IDE.
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🌐 Deployment
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The site is deployed via **Lovable's built-in hosting**.
+
+To publish updates: open [Lovable](https://lovable.dev/projects/dab8e58c-7ebd-49ff-8d90-2abc16cc00a6) → **Share → Publish**.
+
+To connect a custom domain: **Project → Settings → Domains → Connect Domain**.
+([Custom domain guide](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide))
+
+---
+
+## 💡 The Story Behind the Build
+
+This portfolio began as a Lovable project — a great way to rapidly prototype a structure and layout. From there, I took full ownership: rebuilding components from scratch, refining the visual language, wiring up Ady as an interactive agent, and iterating through local development until it felt genuinely *mine*.
+
+The result is a portfolio that reflects both how I think and how I build — with AI as a collaborator, not a shortcut.
+
+---
+
+<div align="center">
+
+**Made with curiosity, caffeine, and a lot of iteration.**  
+© 2026 Pradeep Balakrishnan
+
+</div>
