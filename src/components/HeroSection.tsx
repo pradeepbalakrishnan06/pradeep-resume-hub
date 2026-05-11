@@ -172,9 +172,19 @@ const HeroSection = () => {
             </div>
 
             <div className="mt-5 grid grid-cols-3 gap-3">
-              {["ITSM", "AI", "SRE", "PRODUCT MANAGEMENT"].map((item) => (
-                <div key={item} className="rounded-md bg-resume-dark-gray px-3 py-3 text-center text-sm font-semibold text-white">
-                  {item}
+              {[
+                { label: "Service Delivery", className: "border-[#B9CED8] bg-[#E9F3F8] text-[#3F6F7D]" },
+                { label: "DevOps Ambassador", className: "border-[#E0C2B9] bg-[#F7E8E4] text-resume-terracotta" },
+                { label: "Product Management", className: "border-[#C7D8CE] bg-[#EEF5F0] text-[#5F7D68]" },
+                { label: "ITSM", className: "border-[#D9DDB9] bg-[#F4F5E4] text-[#6C733E]" },
+                { label: "SRE", className: "border-[#D7C9E8] bg-[#F0EAF7] text-[#6E5790]" },
+                { label: "AI", className: "border-[#E7C9AF] bg-[#F8EDE2] text-[#93643F]" },
+              ].map((item) => (
+                <div
+                  key={item.label}
+                  className={`rounded-md border px-2 py-3 text-center text-xs font-bold uppercase tracking-[0.08em] shadow-sm ${item.className}`}
+                >
+                  {item.label}
                 </div>
               ))}
             </div>
