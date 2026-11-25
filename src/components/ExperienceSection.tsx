@@ -9,7 +9,7 @@ const experiences = [
   { id: 3, year: 2014, company: "HCL America Inc.", role: "Sr. Manager(Product, Platform Manager & Service Delivery)", duration: "2014 – 2018", location: "Nashville, Tennessee, & New Jersey, USA" },
   { id: 4, year: 2018, company: "UBS", role: "Associate Director (Tech Service Delivery & Product Management)", duration: "2018 – 2021", location: "Pune, Maharashtra, India" },
   { id: 5, year: 2021, company: "Credit Suisse / UBS", role: "Vice President, India Regional Lead - Ops., Product & Platform Manager (New Tech Adoption, DevOps & SRE)", duration: "2021 – 2023", location: "Pune, Maharashtra, India" },
-  { id: 6, year: 2023, company: "Freelance / Consultant", role: "Independent ITSM, Transformation & Data Visualization Consultant", duration: "2023 – Present", location: "Bengaluru, Karnataka, India" },
+  { id: 6, year: 2023, company: "CAREER BREAK - FULL-TIME PARENT", role: "Cloud, Automation & Generative AI Builder (10x Certified)", duration: "2023 – Present", location: "Bengaluru, Karnataka, India" },
 ];
 
 // Graph order: start from 2008
